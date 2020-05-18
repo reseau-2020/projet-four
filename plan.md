@@ -64,12 +64,12 @@ AS2 | Gi2/3 | connected to pc-8 on port eth0 | 10.16.9.14 |
 AS2 | Gi3/3 | connected to SW-CTRL on port Ethernet7 | 10.16.5.14 | 
 
 
-#VLANS
-vlan 10 : 10.16.10.0/24, ip default gateway 10.16.10.254
-vlan 20 : 10.16.20.0/24, passerelle 10.16.10.254
-vlan 30 : 10.16.30.0/24, passerelle 10.16.10.254
-vlan 40 : 10.16.40.0/24, passerelle 10.16.10.254
-vlan 99 : vlan natif
+# VLANS
+- vlan 10 : 10.16.10.0/24, ip default gateway 10.16.10.254
+- vlan 20 : 10.16.20.0/24, passerelle 10.16.10.254
+- vlan 30 : 10.16.30.0/24, passerelle 10.16.10.254
+- vlan 40 : 10.16.40.0/24, passerelle 10.16.10.254
+- vlan 99 : vlan natif
 
 | Périphérique  |VLAN | Adresse ipv4  |  Adresse ipv6
 |---|-----|----|----|
