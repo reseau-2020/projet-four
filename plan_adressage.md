@@ -65,7 +65,7 @@ AS2 | Gi2/1 | connected to pc-6 on port eth0 |  |
 AS2 | Gi2/2 | connected to pc-7 on port eth0 |  | 
 AS2 | Gi2/3 | connected to pc-8 on port eth0 |  | 
 AS2 | Gi3/3 | connected to SW-CTRL on port Ethernet7 |  | 
-SW-CTRL | Port Ethernet0 is in access  mode, connected to controller-1 on port Ethernet0 |  | fe80::c:1 ; 2001:470:c814:4000::c:1 ; fd00:fd00:fd00::c:1
+SW-CTRL | Ethernet0 is in access  mode |  connected to controller-1 on port Ethernet0 |  | fe80::c:1 ; 2001:470:c814:4000::c:1 ; fd00:fd00:fd00::c:1
 SW-CTRL | Ethernet1 is in access  mode |  connected to R1 on port Gi0/7 |  | fe80::c:1
 SW-CTRL | Ethernet2 is in access  mode |  connected to R2 on port Gi0/7 |  | fe80::c:1
 SW-CTRL | Ethernet3 is in access  mode |  connected to R3 on port Gi0/7 |  | fe80::c:1
