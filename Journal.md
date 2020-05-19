@@ -4,7 +4,7 @@ Ensuite on s’est intéressé au plan d’adressage IPV4 et IPV6.
 
 # Jour2: 19/05/2020
 
-Tâches réalisés aujourd’hui:
+Tâches réalisées aujourd’hui:
 -	Faire le point avec François concernant le plan d’adressage 
 -	Continuer sur l’adressage IPv6
 -	Validation du plan d’adressage avec François
