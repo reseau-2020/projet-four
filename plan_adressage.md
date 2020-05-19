@@ -109,8 +109,8 @@ VLANs 1,10,30,99 |	root primary	 |  root secondary
 VLANs 20,40      |	root secondary |	root primary
 
 ## HSRP
-Commutateur  |	Interface	Adresse IPv4 virtuelle  |	Adresse IPv6 virtuelle  |	Group |	Priorité
-|---|-----|----|----|----
+Commutateur  |	Interface |	Adresse IPv4 virtuelle  |	Adresse IPv6 virtuelle  |	Group |	Priorité
+|---|-----|----|----|----|----
 DS1 | VLAN10 | 10.16.10.252 | fd00:1ab:10::1 | 10/16 |	150, prempt
 DS1 | VLAN20 | 10.16.20.252 | fd00:1ab:20::1 | 20/26 |	default
 DS1 | VLAN30 | 10.16.30.252 | fd00:1ab:30::1 | 30/36 |	150, prempt
