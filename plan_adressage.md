@@ -77,9 +77,9 @@ SW-CTRL | Ethernet7 is in access  mode |  connected to AS2 on port Gi3/3 |  |
 
 # VLANS
 - vlan 10 : 10.16.10.0/24, passerelle 10.16.10.254, port acces AS1 & AS2 g2/0
-- vlan 20 : 10.16.20.0/24, passerelle 10.16.10.254, port acces AS1 & AS2 g2/1
-- vlan 30 : 10.16.30.0/24, passerelle 10.16.10.254, port acces AS1 & AS2 g2/2
-- vlan 40 : 10.16.40.0/24, passerelle 10.16.10.254, port acces AS1 & AS2 g2/3
+- vlan 20 : 10.16.20.0/24, passerelle 10.16.20.254, port acces AS1 & AS2 g2/1
+- vlan 30 : 10.16.30.0/24, passerelle 10.16.30.254, port acces AS1 & AS2 g2/2
+- vlan 40 : 10.16.40.0/24, passerelle 10.16.40.254, port acces AS1 & AS2 g2/3
 - vlan 99 : vlan natif
 
 | Périphérique  |VLAN | Adresses ipv4  |  Adresses ipv6
