@@ -66,13 +66,13 @@ AS2 | Gi2/2 | connected to pc-7 on port eth0 |  |
 AS2 | Gi2/3 | connected to pc-8 on port eth0 |  | 
 AS2 | Gi3/3 | connected to SW-CTRL on port Ethernet7 |  | 
 SW-CTRL | Port Ethernet0 is in access  mode, connected to controller-1 on port Ethernet0 |  | fe80::c:1 ; 2001:470:c814:4000::c:1 ; fd00:fd00:fd00::c:1
-SW-CTRL | Port Ethernet1 is in access  mode, connected to R1 on port Gi0/7 |  | fe80::c:1
-SW-CTRL | Port Ethernet2 is in access  mode, connected to R2 on port Gi0/7 |  | fe80::c:1
-SW-CTRL | Port Ethernet3 is in access  mode, connected to R3 on port Gi0/7 |  | fe80::c:1
-SW-CTRL | Port Ethernet4 is in access  mode, connected to DS1 on port Gi3/3 |  | 
-SW-CTRL | Port Ethernet5 is in access  mode, connected to DS2 on port Gi3/3 |  | 
-SW-CTRL | Port Ethernet6 is in access  mode, connected to AS1 on port Gi3/3 |  | 
-SW-CTRL | Port Ethernet7 is in access  mode, connected to AS2 on port Gi3/3 |  | 
+SW-CTRL | Ethernet1 is in access  mode |  connected to R1 on port Gi0/7 |  | fe80::c:1
+SW-CTRL | Ethernet2 is in access  mode |  connected to R2 on port Gi0/7 |  | fe80::c:1
+SW-CTRL | Ethernet3 is in access  mode |  connected to R3 on port Gi0/7 |  | fe80::c:1
+SW-CTRL | Ethernet4 is in access  mode |  connected to DS1 on port Gi3/3 |  | 
+SW-CTRL | Ethernet5 is in access  mode |  connected to DS2 on port Gi3/3 |  | 
+SW-CTRL | Ethernet6 is in access  mode |  connected to AS1 on port Gi3/3 |  | 
+SW-CTRL | Ethernet7 is in access  mode |  connected to AS2 on port Gi3/3 |  | 
 
 
 # VLANS
