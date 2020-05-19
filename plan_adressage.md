@@ -1,6 +1,6 @@
 # PLAN D'ADRESSAGE
-Masque par défaut pour les adresses ipv4 : /24
-Masque par défaut pour les adresses ipv6 : /64
+- Masque par défaut pour les adresses ipv4 : /24
+- Masque par défaut pour les adresses ipv6 : /64
 
 | Périphérique  |Interfaces  |Infos  | Adresses ipv4  |  Adresses ipv6
 |---|-----|-----|----|----|
