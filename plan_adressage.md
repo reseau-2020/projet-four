@@ -2,7 +2,7 @@
 Masque par défaut pour les adresses ipv4 : /24
 Masque par défaut pour les adresses ipv6 : /64
 
-| Périphérique  |Interfaces  |Infos  | Adresse ipv4  |  Adresse ipv6
+| Périphérique  |Interfaces  |Infos  | Adresses ipv4  |  Adresses ipv6
 |---|-----|-----|----|----|
 R1 | Gi0/0 | connected to SW-R1 on port Ethernet0 | 10.32.1.1 | fe80::1 ; 2001:470:c814:4001::2 ; fd00:fd00:fd00:2::1
 R1 | Gi0/1 | connected to Internet on port nat0   | 10.32.4.1 | fe80::1:cafe:4 ; 2001:470:c814:4001::1 ; fd00:fd00:fd00:1::1
@@ -82,7 +82,7 @@ SW-CTRL | Ethernet7 is in access  mode |  connected to AS2 on port Gi3/3 |  |
 - vlan 40 : 10.16.40.0/24, passerelle 10.16.10.254
 - vlan 99 : vlan natif
 
-| Périphérique  |VLAN | Adresse ipv4  |  Adresse ipv6
+| Périphérique  |VLAN | Adresses ipv4  |  Adresses ipv6
 |---|-----|----|----|
 DS1 | VLAN10 | 10.16.10.252/24 | fe80::d1:10 ; fd00:1ab:10::1 ; 2001:470:c814:4010::1
 DS1 | VLAN20 | 10.16.20.252/24 | fe80::d1:20 ; fd00:1ab:20::1 ; 2001:470:c814:4020::1 
