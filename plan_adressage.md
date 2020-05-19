@@ -76,10 +76,10 @@ SW-CTRL | Ethernet7 is in access  mode |  connected to AS2 on port Gi3/3 |  |
 
 
 # VLANS
-- vlan 10 : 10.16.10.0/24, passerelle 10.16.10.254
-- vlan 20 : 10.16.20.0/24, passerelle 10.16.10.254
-- vlan 30 : 10.16.30.0/24, passerelle 10.16.10.254
-- vlan 40 : 10.16.40.0/24, passerelle 10.16.10.254
+- vlan 10 : 10.16.10.0/24, passerelle 10.16.10.254, port acces AS1 & AS2 g2/0
+- vlan 20 : 10.16.20.0/24, passerelle 10.16.10.254, port acces AS1 & AS2 g2/1
+- vlan 30 : 10.16.30.0/24, passerelle 10.16.10.254, port acces AS1 & AS2 g2/2
+- vlan 40 : 10.16.40.0/24, passerelle 10.16.10.254, port acces AS1 & AS2 g2/3
 - vlan 99 : vlan natif
 
 | Périphérique  |VLAN | Adresses ipv4  |  Adresses ipv6
@@ -92,3 +92,30 @@ DS2 | VLAN10 | 10.16.10.253/24 | fe80::d2:10 ; fd00:1ab:10::2 ; 2001:470:c814:40
 DS2 | VLAN20 | 10.16.20.253/24 | fe80::d2:20 ; fd00:1ab:20::2 ; 2001:470:c814:4020::2
 DS2 | VLAN30 | 10.16.30.253/24 | fe80::d2:30 ; fd00:1ab:30::2 ; 2001:470:c814:4030::2
 DS2 | VLAN40 | 10.16.40.253/24 | fe80::d2:40 ; fd00:1ab:40::2 ; 2001:470:c814:4040::2
+
+## Ports Etherchannel et Trunk VLANs
+Ports channel | Ports physique | Commutateurs
+|---|-----|----
+po1  | g0/0, g1/0 | AS1-DS1
+po2  | g0/1, g1/1 | AS1-DS2
+po3  | g0/2, g1/2 | DS1-DS2
+po4  | g0/0, g1/0 | AS2-DS2
+po5  | g0/1, g1/1 | AS2-DS1
+
+## Spanning-Tree
+VLANS | DS1 | DS2
+|---|-----|----
+VLANs 1,10,30,99 |	root primary	 |  root secondary
+VLANs 20,40      |	root secondary |	root primary
+
+## HSRP
+Commutateur  |	Interface	Adresse IPv4 virtuelle  |	Adresse IPv6 virtuelle  |	Group |	Priorité
+|---|-----|----|----|----
+DS1 | VLAN10 | 10.16.10.252 | fd00:1ab:10::1 | 10/16 |	150, prempt
+DS1 | VLAN20 | 10.16.20.252 | fd00:1ab:20::1 | 20/26 |	default
+DS1 | VLAN30 | 10.16.30.252 | fd00:1ab:30::1 | 30/36 |	150, prempt
+DS1 | VLAN40 | 10.16.40.252 | fd00:1ab:40::1 | 40/46 |	default
+DS2 | VLAN10 | 10.16.10.253 | fd00:1ab:10::2 | 10/16 |	default
+DS2 | VLAN20 | 10.16.20.253 | fd00:1ab:20::2 | 20/26 |	150, prempt
+DS2 | VLAN30 | 10.16.30.253 | fd00:1ab:30::2 | 30/36 |	default
+DS2 | VLAN40 | 10.16.40.253 | fd00:1ab:40::2 | 40/46 |	150, prempt
