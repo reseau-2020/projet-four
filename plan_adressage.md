@@ -105,8 +105,8 @@ po5  | g0/1, g1/1 | AS2-DS1
 ## Spanning-Tree
 VLANS | DS1 | DS2
 |---|-----|----
-VLANs 1,10,30,99 |	root primary	 |  root secondary
-VLANs 20,40      |	root secondary |	root primary
+VLANs 10,30,99 |	root primary	 |  root secondary
+VLANs 20,40    |	root secondary |	root primary
 
 ## HSRP
 Commutateur  |	Interface |	Adresse IPv4 virtuelle  |	Adresse IPv6 virtuelle  |	Group |	Priorité
