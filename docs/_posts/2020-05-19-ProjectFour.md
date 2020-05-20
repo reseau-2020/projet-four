@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Récapitulation des deux premiers jours"
+title:  "Récapitulatif des deux premiers jours"
 date:   2020-05-19
 categories: welcome
 ---
