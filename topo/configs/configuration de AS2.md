@@ -1,8 +1,7 @@
-!Désactivation du routage
+!DÃ©sactivation du routage
 (config)#no ip routing
 exit
 wr
-!
 
 !configuration intiale du AS2:
 conf t
@@ -20,7 +19,6 @@ line con 0
 logging synchronous
 end
 wr
-!
 
 !Configuration de Vlans
 conf t
@@ -99,7 +97,7 @@ exit
 wr
 
 
-!Désactivation du CDP
+!DÃ©sactivation du CDP
 no run cdp 
 wr
 
