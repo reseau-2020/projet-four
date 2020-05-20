@@ -446,3 +446,51 @@ network 10.16.54.1
 network 10.16.55.1
 
 exit
+
+!
+
+! EIGRPv6
+
+!
+
+conf t
+
+ipv6 unicast-routing
+
+interface loopback0
+
+ip address 1.1.1.1 255.255.255.255
+
+ipv6 router eigrp 1
+
+eigrp router-id 5.5.5.5
+
+passive-interface vlan 10
+
+passive-interface vlan 20
+
+passive-interface vlan 30
+
+passive-interface vlan 40
+
+interface g2/0
+
+ipv6 eigrp 1
+
+interface g2/1
+
+ipv6 eigrp 1
+
+interface g3/0
+
+ipv6 eigrp 1
+
+interface g3/1
+
+ipv6 eigrp 1
+
+exit
+
+end
+
+wr
