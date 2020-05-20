@@ -207,6 +207,50 @@ wr
 
 !
 
+! LINK TO R2 & R3
+
+!
+
+conf t
+
+int g2/1
+
+no switchport
+
+ip add 10.32.52.1 255.255.255.0
+
+no shut
+
+int g3/1
+
+no switchport
+
+ip add 10.32.54.1 255.255.255.0
+
+no shut
+
+int g2/0
+
+no switchport
+
+ip add 10.32.53.1 255.255.255.0
+
+no shut
+
+int g3/0
+
+no switchport
+
+ip add 10.32.55.1 255.255.255.0
+
+no shut
+
+end
+
+wr
+
+!
+
 ! Spanning-tree
 
 !
@@ -371,9 +415,17 @@ ip dhcp excluded-address 10.16.40.1 10.16.40.127
 
 conf t
 
-router eigrp 5
+router eigrp 1
 
 passive-interface GigabitEthernet3/3
+
+passive-interface vlan 10
+
+passive-interface vlan 20
+
+passive-interface vlan 30
+
+passive-interface vlan 40
 
 eigrp router-id 5.5.5.5
 
@@ -385,12 +437,12 @@ network 10.16.30.0
 
 network 10.16.40.0
 
-network 10.16.25.1
+network 10.16.52.1
 
-network 10.16.25.2
+network 10.16.53.1
 
-network 10.16.35.1
+network 10.16.54.1
 
-network 10.16.35.2
+network 10.16.55.1
 
 exit
