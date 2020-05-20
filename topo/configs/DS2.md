@@ -217,7 +217,7 @@ int g2/1
 
 no switchport
 
-ip add 10.32.52.1 255.255.255.0
+ip add 10.16.215.2 255.255.255.0
 
 no shut
 
@@ -225,7 +225,7 @@ int g3/1
 
 no switchport
 
-ip add 10.32.54.1 255.255.255.0
+ip add 10.16.225.1 255.255.255.0
 
 no shut
 
@@ -233,7 +233,7 @@ int g2/0
 
 no switchport
 
-ip add 10.32.53.1 255.255.255.0
+ip add 10.16.135.2 255.255.255.0
 
 no shut
 
@@ -241,7 +241,7 @@ int g3/0
 
 no switchport
 
-ip add 10.32.55.1 255.255.255.0
+ip add 10.16.235.1 255.255.255.0
 
 no shut
 
