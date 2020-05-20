@@ -24,7 +24,7 @@ R3 | Gi0/3 | connected to DS2 on port Gi2/0 | `10.16.1.3` | `fe80::3`
 R3 | Gi0/4 | connected to DS2 on port Gi3/0 | `10.16.2.3` | `fe80::3`
 R3 | Gi0/5 | connected to DS1 on port Gi2/1 | `10.16.3.3` | `fe80::3`
 R3 | Gi0/6 | connected to DS1 on port Gi3/1 | `10.16.4.3` | `fe80::3`
-R3 | Gi0/7 | connected to SW-CTRL on port Ethernet3 | 10.32.5.3 | `fe80::3`
+R3 | Gi0/7 | connected to SW-CTRL on port Ethernet3 | `10.32.5.3` | `fe80::3`
 DS1 | Gi0/0 | connected to AS1 on port Gi0/0 |  | 
 DS1 | Gi0/1 | connected to AS2 on port Gi0/1 |  | 
 DS1 | Gi0/2 | connected to DS2 on port Gi0/2 |  | 
