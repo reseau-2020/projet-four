@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Récapitulation du mercredi 20 mai"
+title:  "Récapitulatif du mercredi 20 mai"
 date:   2020-05-20
 categories: welcome
 ---
