@@ -321,7 +321,7 @@ interface vlan 10
 
 standby version 2
 
-standby 16 ipv6 fe80::d2
+standby 16 ipv6 fe80::d10
 
 exit
 
@@ -333,7 +333,7 @@ standby 26 preempt
 
 standby version 2
 
-standby 26 ipv6 fe80::d2
+standby 26 ipv6 fe80::d20
 
 exit
 
@@ -341,7 +341,7 @@ interface vlan 30
 
 standby version 2
 
-standby 36 ipv6 fe80::d2
+standby 36 ipv6 fe80::d30
 
 exit
 
@@ -353,7 +353,7 @@ standby 46 preempt
 
 standby version 2
 
-standby 46 ipv6 fe80::d2
+standby 46 ipv6 fe80::d40
 
 end
 
