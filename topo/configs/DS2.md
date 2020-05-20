@@ -280,3 +280,53 @@ standby 40 preempt
 end
 
 wr
+
+!
+
+! HSRP v6
+
+!
+
+conf t
+
+interface vlan 10
+
+standby version 2
+
+standby 16 ipv6 fd00:1ab:10::2
+
+exit
+
+interface vlan 20
+
+standby 26 priority 150
+
+standby 26 preempt
+
+standby version 2
+
+standby 26 ipv6 fd00:1ab:20::2
+
+exit
+
+interface vlan 30
+
+standby version 2
+
+standby 36 ipv6 fd00:1ab:30::2
+
+exit
+
+interface vlan 40
+
+standby 46 priority 150
+
+standby 46 preempt
+
+standby version 2
+
+standby 46 ipv6 fd00:1ab:30::2
+
+end
+
+wr
