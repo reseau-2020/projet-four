@@ -20,4 +20,4 @@ Tâches à réaliser pour demain :
 - 
 
 
-![image locale](/projet-four/20200520_planning.svg)
+![image locale](/projet-four/20200520_planning.png)
