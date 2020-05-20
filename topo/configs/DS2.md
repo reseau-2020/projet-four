@@ -73,6 +73,12 @@ interface vlan 10
 
 ip address 10.16.10.253 255.255.255.0
 
+ipv6 address fe80::d2:10 link-local
+
+ipv6 address fd00:1ab:10::2/64
+
+ipv6 address 2001:471:c814:4010::2/64
+
 no shutdown
 
 exit
@@ -80,6 +86,12 @@ exit
 interface vlan 20
 
 ip address 10.16.20.253 255.255.255.0
+
+ipv6 address fe80::d2:20 link-local
+
+ipv6 address fd00:1ab:20::2/64
+
+ipv6 address 2001:471:c814:4020::2/64
 
 no shutdown
 
@@ -89,6 +101,12 @@ interface vlan 30
 
 ip address 10.16.30.253 255.255.255.0
 
+ipv6 address fe80::d2:30 link-local
+
+ipv6 address fd00:1ab:30::2/64
+
+ipv6 address 2001:471:c814:4030::2/64
+
 no shutdown
 
 exit
@@ -96,6 +114,12 @@ exit
 interface vlan 40
 
 ip address 10.16.40.253 255.255.255.0
+
+ipv6 address fe80::d2:40 link-local
+
+ipv6 address fd00:1ab:40::2/64
+
+ipv6 address 2001:471:c814:4040::2/64
 
 no shutdown
 
@@ -330,3 +354,51 @@ standby 46 ipv6 fd00:1ab:30::2
 end
 
 wr
+
+!
+
+! DHCP
+
+!
+
+conf t
+
+ip dhcp pool VLAN10
+
+network 10.16.10.0 255.255.255
+
+default-router 10.16.10.253
+
+exit
+
+ip dhcp pool VLAN20
+
+network 10.16.20.0 255.255.255.0
+
+default-router 10.16.20.253
+
+exit
+
+ip dhcp pool VLAN30
+
+network 10.16.30.0 255.255.255.0
+
+default-router 10.16.30.253
+
+exit
+
+ip dhcp pool VLAN40
+
+network 10.16.40.0 255.255.255.0
+
+default-router 10.16.40.253
+
+exit
+
+ip dhcp excluded-address 10.16.10.1 10.16.10.127
+
+ip dhcp excluded-address 10.16.20.1 10.16.20.127
+
+ip dhcp excluded-address 10.16.30.1 10.16.30.127
+
+ip dhcp excluded-address 10.16.40.1 10.16.40.127
