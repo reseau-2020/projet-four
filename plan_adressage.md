@@ -111,11 +111,11 @@ VLANs 20,40    |	root secondary |	root primary
 ## HSRP
 Commutateur  |	Interface |	Adresse IPv4 virtuelle  |	Adresse IPv6 virtuelle  |	Group |	Priorité
 |---|-----|----|----|----|----
-DS1 | VLAN10 | `10.16.10.254` | `fd00:1ab:10::1` | 10/16 |	150, prempt
-DS1 | VLAN20 | `10.16.20.254` | `fd00:1ab:20::1` | 20/26 |	default
-DS1 | VLAN30 | `10.16.30.254` | `fd00:1ab:30::1` | 30/36 |	150, prempt
-DS1 | VLAN40 | `10.16.40.254` | `fd00:1ab:40::1` | 40/46 |	default
-DS2 | VLAN10 | `10.16.10.254` | `fd00:1ab:10::2` | 10/16 |	default
-DS2 | VLAN20 | `10.16.20.254` | `fd00:1ab:20::2` | 20/26 |	150, prempt
-DS2 | VLAN30 | `10.16.30.254` | `fd00:1ab:30::2` | 30/36 |	default
-DS2 | VLAN40 | `10.16.40.254` | `fd00:1ab:40::2` | 40/46 |	150, prempt
+DS1 | VLAN10 | `10.16.10.254` | `fe80::d1` | 10/16 |	150, prempt
+DS1 | VLAN20 | `10.16.20.254` | `fe80::d1` | 20/26 |	default
+DS1 | VLAN30 | `10.16.30.254` | `fe80::d1` | 30/36 |	150, prempt
+DS1 | VLAN40 | `10.16.40.254` | `fe80::d1` | 40/46 |	default
+DS2 | VLAN10 | `10.16.10.254` | `fe80::d2` | 10/16 |	default
+DS2 | VLAN20 | `10.16.20.254` | `fe80::d2` | 20/26 |	150, prempt
+DS2 | VLAN30 | `10.16.30.254` | `fe80::d2` | 30/36 |	default
+DS2 | VLAN40 | `10.16.40.254` | `fe80::d2` | 40/46 |	150, prempt
