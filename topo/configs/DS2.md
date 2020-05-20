@@ -15,7 +15,9 @@ line con 0
 logging synchronous
 end
 wr
-!8
+!
+! VLANs
+!
 conf t
 vlan 10
 exit
@@ -30,7 +32,6 @@ name native
 exit
 end
 wr
-!
 !
 conf t
 interface vlan 10
@@ -53,6 +54,7 @@ ip default-gateway 10.16.10.254
 end
 wr
 !
+! Etherchannel
 !
 conf t
 interface range g0/1, g1/1
@@ -109,6 +111,7 @@ exit
 end
 wr
 !
+! Spanning-tree
 !
 conf t
 spanning-tree vlan 20, 40 root primary
@@ -117,3 +120,23 @@ spanning-tree mode rapid-pvst
 end
 wr
 !
+! HSRP
+!
+conf t
+interface vlan 10
+standby 10 ip 10.16.10.254
+exit
+interface vlan 20
+standby 20 ip 10.16.20.254
+standby 20 priority 150
+standby 20 preempt
+exit
+interface vlan 30
+standby 30 ip 10.16.30.254
+exit
+interface vlan 40
+standby 40 ip 10.16.40.254
+standby 40 priority 150
+standby 40 preempt
+end
+wr
