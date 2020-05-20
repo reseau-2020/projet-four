@@ -317,7 +317,7 @@ interface vlan 10
 
 standby version 2
 
-standby 16 ipv6 fd00:1ab:10::2
+standby 16 ipv6 fe80::d2
 
 exit
 
@@ -329,7 +329,7 @@ standby 26 preempt
 
 standby version 2
 
-standby 26 ipv6 fd00:1ab:20::2
+standby 26 ipv6 fe80::d2
 
 exit
 
@@ -337,7 +337,7 @@ interface vlan 30
 
 standby version 2
 
-standby 36 ipv6 fd00:1ab:30::2
+standby 36 ipv6 fe80::d2
 
 exit
 
@@ -349,7 +349,7 @@ standby 46 preempt
 
 standby version 2
 
-standby 46 ipv6 fd00:1ab:30::2
+standby 46 ipv6 fe80::d2
 
 end
 
@@ -402,3 +402,35 @@ ip dhcp excluded-address 10.16.20.1 10.16.20.127
 ip dhcp excluded-address 10.16.30.1 10.16.30.127
 
 ip dhcp excluded-address 10.16.40.1 10.16.40.127
+
+!
+
+! EIGRP
+
+!
+
+conf t
+
+router eigrp 5
+
+passive-interface GigabitEthernet3/3
+
+eigrp router-id 5.5.5.5
+
+network 10.16.10.0
+
+network 10.16.20.0
+
+network 10.16.30.0
+
+network 10.16.40.0
+
+network 10.16.1.3
+
+network 10.16.2.3
+
+network 10.16.3.2
+
+network 10.16.4.2
+
+exit
