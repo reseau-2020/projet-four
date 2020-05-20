@@ -425,12 +425,12 @@ network 10.16.30.0
 
 network 10.16.40.0
 
-network 10.16.1.3
+network 10.16.25.1
 
-network 10.16.2.3
+network 10.16.25.2
 
-network 10.16.3.2
+network 10.16.35.1
 
-network 10.16.4.2
+network 10.16.35.2
 
 exit
