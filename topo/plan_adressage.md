@@ -31,10 +31,10 @@ DS1 | Gi0/2 | connected to DS2 on port Gi0/2 |  |
 DS1 | Gi1/0 | connected to AS1 on port Gi1/0 |  | 
 DS1 | Gi1/1 | connected to AS2 on port Gi1/1 |  | 
 DS1 | Gi1/2 | connected to DS2 on port Gi1/2 |  | 
-DS1 | Gi2/0 | connected to R2 on port Gi0/2  | `10.16.42.1` | `fe80::d:1`
-DS1 | Gi2/1 | connected to R3 on port Gi0/5  | `10.16.43.1` | `fe80::d:1`
-DS1 | Gi3/0 | connected to R2 on port Gi0/4  | `10.16.44.1` | `fe80::d:1`
-DS1 | Gi3/1 | connected to R3 on port Gi0/6  | `10.16.45.1` | `fe80::d:1`
+DS1 | Gi2/0 | connected to R2 on port Gi0/2  | `10.32.42.1` | `fe80::d:1`
+DS1 | Gi2/1 | connected to R3 on port Gi0/5  | `10.32.43.1` | `fe80::d:1`
+DS1 | Gi3/0 | connected to R2 on port Gi0/4  | `10.32.44.1` | `fe80::d:1`
+DS1 | Gi3/1 | connected to R3 on port Gi0/6  | `10.32.45.1` | `fe80::d:1`
 DS1 | Gi3/3 | connected to SW-CTRL on port Ethernet4 |  | 
 DS2 | Gi0/0 | connected to AS2 on port Gi0/0 |  | 
 DS2 | Gi0/1 | connected to AS1 on port Gi0/1 |  | 
@@ -42,10 +42,10 @@ DS2 | Gi0/2 | connected to DS1 on port Gi0/2 |  |
 DS2 | Gi1/0 | connected to AS2 on port Gi1/0 |  | 
 DS2 | Gi1/1 | connected to AS1 on port Gi1/1 |  | 
 DS2 | Gi1/2 | connected to DS1 on port Gi1/2 |  | 
-DS2 | Gi2/0 | connected to R3 on port Gi0/3  | `10.16.53.1` | `fe80::d:2` 
-DS2 | Gi2/1 | connected to R2 on port Gi0/5  | `10.16.52.1` | `fe80::d:2` 
-DS2 | Gi3/0 | connected to R3 on port Gi0/4  | `10.16.55.1` | `fe80::d:2` 
-DS2 | Gi3/1 | connected to R2 on port Gi0/6  | `10.16.54.1` | `fe80::d:2` 
+DS2 | Gi2/0 | connected to R3 on port Gi0/3  | `10.32.53.1` | `fe80::d:2` 
+DS2 | Gi2/1 | connected to R2 on port Gi0/5  | `10.32.52.1` | `fe80::d:2` 
+DS2 | Gi3/0 | connected to R3 on port Gi0/4  | `10.32.55.1` | `fe80::d:2` 
+DS2 | Gi3/1 | connected to R2 on port Gi0/6  | `10.32.54.1` | `fe80::d:2` 
 DS2 | Gi3/3 | connected to SW-CTRL on port Ethernet5 |  |
 AS1 |  Gi0/0 | connected to DS1 on port Gi0/0 |  | 
 AS1 |  Gi0/1 | connected to DS2 on port Gi0/1 |  | 
