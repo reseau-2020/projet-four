@@ -26,4 +26,4 @@ Tâches à réaliser pour demain :
 Finir la configuration des switchs sur GNS3 et s'assurer que la topologie est opérationnelle avant de passer aux services infras (DHCP, NTP etc...)
 
 
-![image locale](/projet-four/20200519_planning.svg)
+![image locale](/projet-four/planning/20200519_planning.svg)
