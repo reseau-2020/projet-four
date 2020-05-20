@@ -201,46 +201,6 @@ no shutdown
 
 exit
 
-!
-
-!
-
-conf t
-
-interface range g2/0, g3/0
-
-shutdown
-
-channel-group 6 mode desirable
-
-switchport trunk encapsulation dot1q
-
-switchport trunk native vlan 99
-
-switchport mode trunk
-
-no shutdown
-
-!
-
-interface range g2/1, g3/1
-
-shutdown
-
-channel-group 7 mode desirable
-
-switchport trunk encapsulation dot1q
-
-switchport trunk native vlan 99
-
-switchport mode trunk
-
-no shutdown
-
-exit
-
-!
-
 end
 
 wr
