@@ -10,7 +10,7 @@ R1 | Gi0/2 | connected to R2 on port Gi0/1          | `10.32.12.1` | `fe80::1`
 R1 | Gi0/3 | connected to R3 on port Gi0/1          | `10.32.13.1` | `fe80::1`
 R1 | Gi0/7 | connected to SW-CTRL on port Ethernet1 | `10.32.75.1` | `fe80::1`
 R2 | Gi0/0 | connected to SW-R2 on port Ethernet0   | `10.32.202.2` | `fe80::2` ; `2001:470:c814:4002::2:1` ; `fd00:fd00:fd00:2::2:1`
-R2 | Gi0/1 | connected to R1 on port Gi0/2  | `10.32.21.1` | `fe80::2`
+R2 | Gi0/1 | connected to R1 on port Gi0/2  | `10.32.12.2` | `fe80::2`
 R2 | Gi0/2 | connected to DS1 on port Gi2/0 | `10.16.214.1` | `fe80::2`
 R2 | Gi0/3 | connected to R3 on port Gi0/2  | `10.32.23.1` | `fe80::2`
 R2 | Gi0/4 | connected to DS1 on port Gi3/0 | `10.16.224.2` | `fe80::2`
@@ -18,8 +18,8 @@ R2 | Gi0/5 | connected to DS2 on port Gi2/1 | `10.16.215.1` | `fe80::2`
 R2 | Gi0/6 | connected to DS2 on port Gi3/1 | `10.16.225.2` | `fe80::2`
 R2 | Gi0/7 | connected to SW-CTRL on port Ethernet2 | `10.32.75.2` | `fe80::2`
 R3 | Gi0/0 | connected to SW-R3 on port Ethernet0   | `10.32.203.1` | `fe80::3` ; `2001:470:c814:4003::3:1` ; `fd00:fd00:fd00:3::3:1`
-R3 | Gi0/1 | connected to R1 on port Gi0/3  | `10.32.31.1` | `fe80::3`
-R3 | Gi0/2 | connected to R2 on port Gi0/3  | `10.32.32.1` | `fe80::3`
+R3 | Gi0/1 | connected to R1 on port Gi0/3  | `10.32.13.2` | `fe80::3`
+R3 | Gi0/2 | connected to R2 on port Gi0/3  | `10.32.23.2` | `fe80::3`
 R3 | Gi0/3 | connected to DS2 on port Gi2/0 | `10.16.135.1` | `fe80::3`
 R3 | Gi0/4 | connected to DS2 on port Gi3/0 | `10.16.235.2` | `fe80::3`
 R3 | Gi0/5 | connected to DS1 on port Gi2/1 | `10.16.134.1` | `fe80::3`
