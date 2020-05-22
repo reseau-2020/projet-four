@@ -1,4 +1,4 @@
-'''
+```
 !Désactivation du routage
 (config)#no ip routing
 exit
@@ -103,6 +103,6 @@ wr
 !Désactivation du CDP
 no run cdp 
 wr
-'''
+```
 
 
