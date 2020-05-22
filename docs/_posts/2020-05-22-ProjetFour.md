@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Récapitulatif du mercredi 20 mai"
+title:  "Récapitulatif du vendredi 22 mai"
 date:   2022-05-20
 categories: welcome
 ---
