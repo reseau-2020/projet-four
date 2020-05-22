@@ -1,3 +1,4 @@
+'''
 ! Configuration initiale
 conf t
  hostname R3
