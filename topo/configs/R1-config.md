@@ -1,5 +1,5 @@
 ```
-! Configuration des routeurs
+#Configuration des routeurs
 conf t
 hostname R1
 username root secret testtest
@@ -13,7 +13,7 @@ exit
 line con 0
 logging synchronous
 
-! Mise en place IPv6 / IPv4
+#Mise en place IPv6 / IPv4
 
 ipv6 unicast-routing
 
@@ -46,7 +46,8 @@ interface GigabitEthernet0/3
  ip address 10.32.13.1 255.255.255.0
  ipv6 address FE80::1 link-local
  ipv6 eigrp 1
-!
+
+#EIGRP
 !Routage IPv6
 ipv6 router eigrp 1
  passive-interface GigabitEthernet0/0
@@ -63,6 +64,7 @@ ipv6 router eigrp 1
 end
 wr
 
+#implémentation du nat
 ip access-list standard lan
 permit 10.32.201.0 0.0.255.255
 permit 10.32.12.0 0.0.255.255
