@@ -16,7 +16,21 @@ Tâches à réaliser pour demain:
 - Continuer la configuration sur GNS3
 - S'assurer que la topo est opérationnelle 
 
-# Jour 4 : 20/05/2020
+# Jour 3 : 20/05/2020
+On a commencé la configuration de la couche core des routeurs.
+On a choisi le protocole de routage EIGRP, plus facile à implémenter.
+
+Tâches réalisées aujourd’hui :
+- finalisation de la config de DS1 & DS2 (HSRPv4, HSRPv6, eigrpv4, eigrpv6, DHCP) (Clément, Francois)
+- configuration des routeurs (eigrpv4, eigrpv6, nat) (Asma et Besma)
+- rectification du plan d'adressage
+
+Tâches à réaliser pour 22/02/2020 :
+- rectifier la config de routeurs R2 et R1
+- tester les connectivités à l'intérieur du LAN
+- tester les connectivités à l'internet
+
+# Jour 4 : 22/05/2020
 Tâches réalisées aujourd’hui
 -	Finir la configuration de trois routeurs,
 -	Implémenter le Nat sur R1
