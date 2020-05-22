@@ -16,3 +16,16 @@ Tâches à réaliser pour demain:
 - Continuer la configuration sur GNS3
 - S'assurer que la topo est opérationnelle 
 
+# Jour 4 : 20/05/2020
+Tâches réalisées aujourd’hui
+-	Finir la configuration de trois routeurs,
+-	Implémenter le Nat sur R1
+-	Tester la connectivité
+-	Mise en œuvre d’un pare-feu Cisco sur R1
+-	Mise en œuvre d’une zone DMZ 
+-	Mise en place d’un site distant connecté en VPN IPSEC
+
+Tâches à réaliser pour 25/05/2020
+-	Implémenter NTP, le syslog et SNMP
+-	Elaborer un cas qui éprouve la fiabilité de la solution et un autre qui éprouve la sécurité de la solution
+-	Partir sur ansible
