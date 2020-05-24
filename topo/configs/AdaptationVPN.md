@@ -1,3 +1,4 @@
+```
 %Configure IKE parameters
 
 crypto isakmp policy 1
@@ -51,3 +52,4 @@ policy-map type inspect to-self-policy
  class type inspect vpn-class
   inspect
 end
+```
