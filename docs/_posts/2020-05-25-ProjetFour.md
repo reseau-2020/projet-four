@@ -14,6 +14,6 @@ Tâches réalisées aujourd’hui
 
 Tâches à réaliser pour 26/05/2020
 
-- Tester la topologie avec un cas fiablité et un cas séxurité
+- Tester la topologie avec un cas fiablité et un cas sécurité
 - Ajuster les configs si nécessaire
 - Partir éventuellement sur Ansible 
