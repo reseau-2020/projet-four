@@ -31,18 +31,18 @@
 
 ! Activation de Syslog
 
-  service timestamp log datetime
+  	service timestamp log datetime
 	service timestamp debug datetime
-	logging 10.32.201.3
-	logging facility local7
-	logging trap 1
-	logging trap 2
-	logging trap 3
-	logging trap 4
-	logging trap 5
-	logging trap 6
-	logging trap 7
-	logging origin-id hostname
-	exit
+	 logging 10.32.201.3
+	 logging facility local7
+	 logging trap 1
+	 logging trap 2
+	 logging trap 3
+	 logging trap 4
+	 logging trap 5
+	 logging trap 6
+	 logging trap 7
+	 logging origin-id hostname
+	 exit
 	wr
 
