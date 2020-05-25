@@ -7,7 +7,7 @@ crypto isakmp policy 1
  authentication pre-share
  group 5
  lifetime 86400
-crypto isakmp key testtest address 192.168.122.33
+crypto isakmp key testtest address 192.168.122.29
 
 
 % Configure IPSec parameters:
@@ -19,7 +19,7 @@ crypto ipsec transform-set to-fortigate-set esp-des esp-md5-hmac
 crypto ipsec transform-set to-fortigate-set esp-aes 256 esp-sha-hmac
 !
 crypto map cm-to-fortigate 1 ipsec-isakmp
- set peer 192.168.122.33
+ set peer 192.168.122.29
  set transform-set to-fortigate-set
  match address crypto-acl
 !
