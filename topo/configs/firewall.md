@@ -8,6 +8,7 @@ conf t
   match protocol https
   match protocol dns
   match protocol icmp
+  match protocol ssh
 end
 !
 conf t
