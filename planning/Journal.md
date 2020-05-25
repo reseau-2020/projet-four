@@ -43,3 +43,13 @@ Tâches à réaliser pour 25/05/2020
 -	Implémenter NTP, le syslog et SNMP
 -	Elaborer un cas qui éprouve la fiabilité de la solution et un autre qui éprouve la sécurité de la solution
 -	Partir sur ansible
+
+
+# Jour 5 : 25/05/2020
+Tâches réalisées aujourd’hui
+- Asma et Besama ont configuré SYSLOG, SNMP et NTP sur les périphériques
+- Clément et François ont finalisé le tunnel VPN entre le site distant (pare-feu fortinet) et le site central (pare-feu Cisco). Connexion en ssh réusssie
+
+Tâches à réaliser pour 26/05/2020
+- Tester la topologie avec un cas fiablité et un cas séxurité
+- Ajuster les configs si nécessaire
