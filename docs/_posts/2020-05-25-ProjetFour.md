@@ -1,3 +1,10 @@
+---
+layout: post
+title:  "Récapitulatif du vendredi 22 mai"
+date:   2022-05-20
+categories: welcome
+---
+
 # Jour 5 : 25/05/2020
 
 Tâches réalisées aujourd’hui
