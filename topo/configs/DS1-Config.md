@@ -11,10 +11,10 @@
     line vty 0 4
     transport input ssh
     login local
-    logging synchronous
+    logging synchronous level 3 limit 50
     exit
     line con 0
-    logging synchronous
+    logging synchronous level 3 limit 50
     exit
 
 ! Désactiver CDP sur le périphérique
@@ -134,7 +134,7 @@
      no shutdown
     ip routing
 
-! Configuration du server DHCP:
+! Configuration du server DHCP IPv4:
 
     ip dhcp pool VLAN10
      network 10.16.10.0 255.255.255.0
@@ -157,6 +157,12 @@
      dns-server 1.1.1.1
      ip dhcp excluded-address 10.16.40.128 10.16.40.255
 
+! Configuration du server DHCP IPv6:
+
+''''
+
+
+''''
 ! Configuration HSRP
 
     interface vlan 10
@@ -187,7 +193,7 @@
     end
 
 
-! Configuration EIGRP
+! Configuration EIGRP IPv4
 
     router eigrp 1
      passive-interface GigabitEthernet3/3
