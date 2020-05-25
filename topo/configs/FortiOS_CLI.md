@@ -1,4 +1,4 @@
-! Configuration FortiOS
+! Configuration de base FortiOS
 
 	! Entrer en mode configuration globale
 	configuration system interface
