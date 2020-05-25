@@ -11,9 +11,11 @@
     line vty 0 4
     transport input ssh
     login local
+    logging synchronous
     exit
     line con 0
     logging synchronous
+    exit
 
 ! Désactiver CDP sur le périphérique
 
