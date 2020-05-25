@@ -1,17 +1,19 @@
 ! Configuration de DS1:
 
-! Configuration initiale:
+! Configuration initiale et connexion aux consoles :
 
     hostname DS1
-    !enable secret testtest
+    ip domain-name lan.project4
     username root algorithm-type sha256 secret testtest
     service password-encryption
-    ip domain-name lan.project4
     crypto key generate rsa modulus 2048
     ip ssh version 2
     line vty 0 4
     transport input ssh
     login local
+    exit
+    line con 0
+    logging synchronous
 
 ! Désactiver CDP sur le périphérique
 
