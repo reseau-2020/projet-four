@@ -35,7 +35,7 @@ systemctl restart systemd-networkd
 
 ## Configuration Virtual IP sur Fortigate pour rediriger traffic http entrant de 192.168.122.29:80 vers 192.168.10.1:80 Idem pour HTTPS
 
-Référence:[Fortinet Library](https://docs.fortinet.com/document/fortigate/5.4.0/cookbook/361386 "cliquez ici !")
+Référence: [Fortinet Library](https://docs.fortinet.com/document/fortigate/5.4.0/cookbook/361386 "cliquez ici !")
 
 # 1 Configuring the FortiGate's DMZ interface
 
