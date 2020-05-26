@@ -1,4 +1,4 @@
-!Configuration de AS1
+```!Configuration de AS1
 enable
 conf t
 hostname AS1
@@ -111,4 +111,4 @@ no shutdown
 exit
 end
 wr
-
+```
