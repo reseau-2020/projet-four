@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Récapitulatif du lundi 25 mai"
-date:   2022-05-20
+date:   2022-05-25
 categories: welcome
 ---
 
