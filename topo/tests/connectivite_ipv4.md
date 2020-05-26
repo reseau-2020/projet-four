@@ -1,4 +1,4 @@
-﻿#Connectivité en IPV4
+# Connectivité en IPV4
 
 ## Exemples de test de connectivité dans la topologie de base (en interne et vers l'internet)
 
