@@ -6,7 +6,7 @@
 
 | Périphérique  |Interfaces  |Infos  | Adresses ipv4  |  Adresses ipv6
 |---|-----|-----|----|----|
-R1 | Gi0/0 | connected to SW-R1 on port Ethernet0   | `10.32.201.1` | `fe80::1` ; `2001:470:c814:4001::2` ; `fd00:fd00:fd00:2::1`
+R1 | Gi0/0 | connected to SW-R1 on port Ethernet0   | `10.32.201.1` | `fe80::1` ; `2001:470:c814:4001::2` ; `fd00:fd00:fd00:1::1:1`
 R1 | Gi0/1 | connected to Internet on port nat0     | `DHCP` | `fe80::1:cafe:4`
 R1 | Gi0/2 | connected to R2 on port Gi0/1          | `10.32.12.1` | `fe80::1`
 R1 | Gi0/3 | connected to R3 on port Gi0/1          | `10.32.13.1` | `fe80::1`
