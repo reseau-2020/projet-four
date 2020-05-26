@@ -25,7 +25,9 @@
 ! Configuration serveur de nom:
 
     ip name-server 1.1.1.1
-    ntp server pool.ntp.org
+    
+    ntp update-calendar
+    ntp server 3.fr.pool.ntp.org
 
 ! Création des VLANs:
 
@@ -168,10 +170,29 @@
 
 ! Configuration du server DHCP IPv6:
 
-''''
+'''
+ipv6 unicast-routing
+ipv6 dhcp pool DHCPv6-VLAN10
+ address prefix 2001:470:C814:4012::/64
+ dns-server 2606:4700:4700::1111
+ domain-name projet4.com
+ 
+ipv6 dhcp pool DHCPv6-VLAN20
+ address prefix 2001:470:C814:4022::/64
+ dns-server 2606:4700:4700::1111
+ domain-name projet4.com
+ 
+ipv6 dhcp pool DHCPv6-VLAN30
+ address prefix 2001:470:C814:4032::/64
+ dns-server 2606:4700:4700::1111
+ domain-name projet4.com
+ 
+ipv6 dhcp pool DHCPv6-VLAN40
+ address prefix 2001:470:C814:4042::/64
+ dns-server 2606:4700:4700::1111
+ domain-name projet4.com
+'''
 
-
-''''
 ! Configuration HSRP
 
     interface vlan 10
