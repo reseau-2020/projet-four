@@ -2,6 +2,8 @@
 - Masque par défaut pour les adresses ipv4 : /24
 - Masque par défaut pour les adresses ipv6 : /64
 
+## Site principal
+
 | Périphérique  |Interfaces  |Infos  | Adresses ipv4  |  Adresses ipv6
 |---|-----|-----|----|----|
 R1 | Gi0/0 | connected to SW-R1 on port Ethernet0   | `10.32.201.1` | `fe80::1` ; `2001:470:c814:4001::2` ; `fd00:fd00:fd00:2::1`
@@ -73,8 +75,20 @@ SW-CTRL | Ethernet4 is in access  mode |  connected to DS1 on port Gi3/3 |  |
 SW-CTRL | Ethernet5 is in access  mode |  connected to DS2 on port Gi3/3 |  | 
 SW-CTRL | Ethernet6 is in access  mode |  connected to AS1 on port Gi3/3 |  | 
 SW-CTRL | Ethernet7 is in access  mode |  connected to AS2 on port Gi3/3 |  | 
-Centos  | eth0  | connected to SW-R1 on port Ethernet1 |   |  `10.32.201.2`
+Centos8-1  | eth0  | connected to SW-R1 on port Ethernet1 |   |  `10.32.201.2`
+Centos8-2  | eth0  | connected to SW-R1 on port Ethernet2 |   |  `10.32.201.3`
 
+## Site distant
+
+| Périphérique  |Interfaces  |Infos  | Adresses ipv4  |  Adresses ipv6
+|---|-----|-----|----|----|
+Fortios | Port2 |  connected to Switch1 on port Ethernet0           | `192.168.150.254` | ` `
+Fortios | Port3 |  connected to Switch2 on port Ethernet0           | `192.168.122.27` | ` ` ; ` ` ; ` `
+Fortios | Port4 |  connected to Server-Ubuntu on port Ethernet0     | `192.1689.10.254` | ` `
+Fortios | Port5 |  connected to Switch2 on port Ethernet2           | ` ` | ` ` 
+Server-Ubuntu | eth0 | connected to fortios-1 on port Port4         | `192.168.10.1` | ` ` 
+Centos-1 |  eth0 |  connected to Switch1 on port Ethernet1          | `192.168.150.1` | ` ` 
+Centos-2 |  eth0 |  connected to Switch1 on port Ethernet2          | `192.168.150.2` | ` ` 
 
 # VLANS
 - vlan 10 : 10.16.10.0/24, passerelle 10.16.10.254, port acces AS1 & AS2 g2/0
