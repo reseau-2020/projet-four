@@ -39,28 +39,28 @@ interface vlan 10
 ip address 10.16.10.253 255.255.255.0
 ipv6 address fe80::d2:10 link-local
 ipv6 address fd00:1ab:10::2/64
-ipv6 address 2001:471:c814:4010::2/64
+ipv6 address 2001:471:c814:4012::/64
 no shutdown
 exit
 interface vlan 20
 ip address 10.16.20.253 255.255.255.0
 ipv6 address fe80::d2:20 link-local
 ipv6 address fd00:1ab:20::2/64
-ipv6 address 2001:471:c814:4020::2/64
+ipv6 address 2001:471:c814:4022::/64
 no shutdown
 exit
 interface vlan 30
 ip address 10.16.30.253 255.255.255.0
 ipv6 address fe80::d2:30 link-local
 ipv6 address fd00:1ab:30::2/64
-ipv6 address 2001:471:c814:4030::2/64
+ipv6 address 2001:471:c814:4032::/64
 no shutdown
 exit
 interface vlan 40
 ip address 10.16.40.253 255.255.255.0
 ipv6 address fe80::d2:40 link-local
 ipv6 address fd00:1ab:40::2/64
-ipv6 address 2001:471:c814:4040::2/64
+ipv6 address 2001:471:c814:4042::/64
 no shutdown
 exit
 ip default-gateway 10.16.10.254
