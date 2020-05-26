@@ -10,7 +10,7 @@ PING google.com(par21s05-in-x0e.1e100.net (2a00:1450:4007:812::200e)) 56 data by
 64 bytes from par21s05-in-x0e.1e100.net (2a00:1450:4007:812::200e): icmp_seq=4 ttl=54 time=10.4 ms
 64 bytes from par21s05-in-x0e.1e100.net (2a00:1450:4007:812::200e): icmp_seq=5 ttl=54 time=11.1 ms
 ```
-## Connectivité dans vlan10
+## Connectivité dans le vlan10
 ```
 [root@pc1 ~]# ping6 2001:470:c814:4011:e8c:12ff:fef1:b900
 PING 2001:470:c814:4011:e8c:12ff:fef1:b900(2001:470:c814:4011:e8c:12ff:fef1:b900) 56 data bytes
@@ -53,7 +53,7 @@ PING 2001:470:c814:4042:e8c:12ff:febf:bf00(2001:470:c814:4042:e8c:12ff:febf:bf00
 64 bytes from 2001:470:c814:4042:e8c:12ff:febf:bf00: icmp_seq=5 ttl=63 time=9.28 ms
 ```
 
-## Connectivité dans vlan20
+## Connectivité dans le vlan20
 ```
 [root@pc2 ~]# ping6 2001:470:c814:4022:e8c:12ff:fe11:7a00
 PING 2001:470:c814:4022:e8c:12ff:fe11:7a00(2001:470:c814:4022:e8c:12ff:fe11:7a00) 56 data bytes
@@ -85,7 +85,7 @@ PING 2001:470:c814:4042:e8c:12ff:febf:bf00(2001:470:c814:4042:e8c:12ff:febf:bf00
 64 bytes from 2001:470:c814:4042:e8c:12ff:febf:bf00: icmp_seq=5 ttl=61 time=10.6 ms
 ```
 
-## Connectivité dans vlan30
+## Connectivité dans le vlan30
 ```
 [root@pc3 ~]# ping6 2001:470:c814:4031:e8c:12ff:fe32:b400
 PING 2001:470:c814:4031:e8c:12ff:fe32:b400(2001:470:c814:4031:e8c:12ff:fe32:b400) 56 data bytes
@@ -108,7 +108,7 @@ PING 2001:470:c814:4042:e8c:12ff:febf:bf00(2001:470:c814:4042:e8c:12ff:febf:bf00
 64 bytes from 2001:470:c814:4042:e8c:12ff:febf:bf00: icmp_seq=6 ttl=63 time=9.35 ms
 ```
 
-## Connectivité dans vlan40
+## Connectivité dans le vlan40
 ```
 [root@pc4 ~]# ping6 2001:470:c814:4042:e8c:12ff:febf:bf00
 PING 2001:470:c814:4042:e8c:12ff:febf:bf00(2001:470:c814:4042:e8c:12ff:febf:bf00) 56 data bytes
