@@ -141,22 +141,30 @@
      network 10.16.10.0 255.255.255.0
      default-router 10.16.10.254
      dns-server 1.1.1.1
-     ip dhcp excluded-address 10.16.10.128 10.16.10.255
+     lease 0 8
+     
     ip dhcp pool VLAN20
      network 10.16.20.0 255.255.255.0
      default-router 10.16.20.254
      dns-server 1.1.1.1
-     ip dhcp excluded-address 10.16.20.128 10.16.20.255
+     lease 0 8
+     
     ip dhcp pool VLAN30
      network 10.16.30.0 255.255.255.0
      default-router 10.16.30.254
      dns-server 1.1.1.1
-     ip dhcp excluded-address 10.16.30.128 10.16.30.255
+     lease 0 8
+     
     ip dhcp pool VLAN40
      network 10.16.40.0 255.255.255.0
      default-router 10.16.40.254
      dns-server 1.1.1.1
-     ip dhcp excluded-address 10.16.40.128 10.16.40.255
+     lease 0 8
+    
+    ip dhcp excluded-address 10.16.10.128 10.16.10.255
+    ip dhcp excluded-address 10.16.20.128 10.16.20.255
+    ip dhcp excluded-address 10.16.30.128 10.16.30.255
+    ip dhcp excluded-address 10.16.40.128 10.16.40.255
 
 ! Configuration du server DHCP IPv6:
 
@@ -222,6 +230,8 @@
     ipv6 unicast-routing
     ipv6 router eigrp 1
      eigrp router-id 10.10.10.10
+     redistribute static
+     no auto-summary
      passive-interface GigabitEthernet3/3
      passive-interface vlan 10
      passive-interface vlan 20
