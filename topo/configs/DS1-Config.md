@@ -246,3 +246,12 @@
      ipv6 eigrp 1
     interface GigabitEthernet2/1
      ipv6 eigrp 1
+    interface vlan10
+     ipv6 eigrp 1
+    interface vlan20
+     ipv6 eigrp 1
+    interface vlan30
+     ipv6 eigrp 1
+    interface vlan40
+     ipv6 eigrp 1
+    
