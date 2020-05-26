@@ -4,10 +4,11 @@
 
     hostname DS1
     ip domain-name lan.project4
-    username root algorithm-type sha256 secret testtest
+    username root privilege 15 algorithm-type sha256 secret testtest
     service password-encryption
     crypto key generate rsa modulus 2048
     ip ssh version 2
+    ip scp enable
     line vty 0 4
     transport input ssh
     login local
