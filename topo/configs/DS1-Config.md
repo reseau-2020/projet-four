@@ -113,25 +113,25 @@
      ip address 10.16.10.252 255.255.255.0
      ipv6 address fe80::d1:10 link-local
      ipv6 address fd00:1ab:10::1/64
-     ipv6 address 2001:470:c814:4010::1/64
+     ipv6 address 2001:470:c814:4011::/64
      no shutdown
     interface vlan 20
      ip address 10.16.20.252 255.255.255.0
      ipv6 address fe80::d1:20 link-local
      ipv6 address fd00:1ab:20::1/64
-     ipv6 address 2001:470:c814:4020::1/64
+     ipv6 address 2001:470:c814:4021::/64
      no shutdown
     interface vlan 30
      ip address 10.16.30.252 255.255.255.0
      ipv6 address fe80::d1:30 link-local
      ipv6 address fd00:1ab:30::1/64
-     ipv6 address 2001:470:c814:4030::1/64
+     ipv6 address 2001:470:c814:4031::/64
      no shutdown
     interface vlan 40
      ip address 10.16.40.252 255.255.255.0
      ipv6 address fe80::d1:40 link-local
      ipv6 address fd00:1ab:40::1/64
-     ipv6 address 2001:470:c814:4040::1/64
+     ipv6 address 2001:470:c814:4041::/64
      no shutdown
     ip routing
 
