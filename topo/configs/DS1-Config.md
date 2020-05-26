@@ -246,7 +246,6 @@
 
 ! Configuration EIGRP IPv6
     
-    ipv6 unicast-routing
     ipv6 router eigrp 1
      eigrp router-id 10.10.10.10
      redistribute static
