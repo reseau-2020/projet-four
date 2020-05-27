@@ -10,10 +10,10 @@ categories: welcome
 Tâches réalisées aujourd’hui
 
 - Connexion en ipv6 (pb de routes)
-- Tests de connectivité
-- Finalisation SNMP (qq pb car on avait mis le serveur snmp dans la dmz)
+- Tests de connectivité en ipv4 et ipv6
+- Finalisation et vérification de SNMP et de syslog (qq pb car on avait mis le serveur snmp dans la dmz)
 
 Tâches à réaliser pour 27/05/2020
 
 - Régler les bugs
-- Sauver la config avec Ansible
+- Sauvgrder la config avec Ansible
