@@ -4,7 +4,7 @@ Ce document présente globalement ce que nous avons mis en place grace au logici
 
 ## 1 Topologie
 
-![Capture GNS3](https://github.com/reseau-2020/projet-four/tree/master/topo/topologie.png?raw=True)
+![Capture GNS3](topologie.png)
 
 ## 2 Plan d'adressage
 Le plan d'adressage de notre topologie est accessible ici *https://github.com/reseau-2020/projet-four/blob/master/topo/plan_adressage.md*.
