@@ -1,4 +1,4 @@
-﻿
+'''
 ! Vérification de la redondance STP:
   
 1) Ping continu du pc1 du VLAN 10 vers sa passerelle DS1 avec rupture de la liaison Po1
@@ -311,7 +311,7 @@ From 10.16.10.130 icmp_seq=110 Destination Host Unreachable
 --- 10.16.20.1 ping statistics ---
 125 packets transmitted, 80 received, +24 errors, 36% packet loss, time 124090ms
 rtt min/avg/max/mdev = 4.436/13370.198/55823.904/20648.839 ms, pipe 56
-
+'''
 
 
 
