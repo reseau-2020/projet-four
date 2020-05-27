@@ -7,9 +7,9 @@ categories: welcome
 
 Jour1: 18/05/2020
 Pour ce premier jour de démarrage, nous avons :
-- repris l’énoncé du projet avec son cahier de charge 
-- listé les tâches et élaboré un Digramme de GANT
-- commencé le plan d’adressage IPV4 et IPV6
+- reprendre l’énoncé du projet avec son cahier de charge 
+- lister les tâches et élaboré un Digramme de GANT
+- commencer le plan d’adressage IPV4 et IPV6
 
 Jour2: 19/05/2020
 Tâches réalisées aujourd’hui:
