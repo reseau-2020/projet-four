@@ -91,10 +91,10 @@ __Exemple sur R2:__
 
 Pour déboguer les erreurs EIGRP on peut utiliser les commandes suivantes :
 
-    show ip protocols           ! --> Vérifier si le protocol est bien activer, voir network/passive interface
-    show ip eigrp neighbors     !--> Voir le voisinage du routeur en EIGRP avec Uptime/hold
-    show ip eigrp topology      !--> Voir la topology du réseau avec interfaces et adresses IP des autres routeurs
-    show ip route               !--> Voir toute la table de routage, les routes dynamique EIGRP sont symbolisés par la lettre D
+* `show ip protocols`          --> Vérifier si le protocol est bien activer, voir network/passive interface
+* `show ip eigrp neighbors`    --> Voir le voisinage du routeur en EIGRP avec Uptime/hold
+* `show ip eigrp topology`     --> Voir la topology du réseau avec interfaces et adresses IP des autres routeurs
+* `show ip route`              --> Voir toute la table de routage, les routes dynamique EIGRP sont symbolisés par la lettre D
 
 ## 9 NAT
 Nous avons choisi la méthode de traduction dynamique overload (PAT) avec une seule IP globale sur *R1*. 
