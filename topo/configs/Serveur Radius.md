@@ -13,12 +13,12 @@
 
 ## Diagnostics
 
-show run | in radius
-aaa authentication login default group radius local
-radius server Radius-server
+    show run | in radius
+    aaa authentication login default group radius local
+    radius server Radius-server
 
-show run | in aaa
-aaa new-model
-aaa authentication login default group radius local
-aaa session-id common
-snmp-server enable traps aaa_server
+    show run | in aaa
+    aaa new-model
+    aaa authentication login default group radius local
+    aaa session-id common
+    snmp-server enable traps aaa_server
