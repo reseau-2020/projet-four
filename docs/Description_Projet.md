@@ -34,6 +34,8 @@ po5  | g0/1, g1/1 | AS2-DS1
 
 ## 6 HSRP
 ## 7 DHCP & DNS
+Les services *DHCP* et *DNS* sont déployés sur *DS1* et *DS2*, en IPv4 et IPv6.
+
 ## 8 EIGRP
 Le protocol de routage implémenté sur les périphérques de couche 3 : *R1*, *R2*, *R3*, *DS1* & *DS2* est *EIGRP*, son id est 1. Le protocol est déployé en IPv4 et Ipv6.
 ## 9 NAT
