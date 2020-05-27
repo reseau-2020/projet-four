@@ -1,4 +1,4 @@
-'''
+````
 !Configuration initiale
 conf t
  hostname R2
@@ -84,3 +84,4 @@ router eigrp 1
  network 10.16.215.0
  network 10.16.225.0
  end
+````
