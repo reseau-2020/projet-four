@@ -234,7 +234,7 @@ PING 192.168.122.27 (192.168.122.27) 56(84) bytes of data.
 rtt min/avg/max/mdev = 6.980/7.449/8.030/0.377 ms
 ```
 
-### De pc1 au fortios-1 (via le tunnel vpn)
+### De pc1 au fortios-1
 ```
 [root@pc1 ~]# ping 192.168.122.27
 PING 192.168.122.27 (192.168.122.27) 56(84) bytes of data.
