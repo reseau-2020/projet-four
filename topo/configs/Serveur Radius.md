@@ -27,6 +27,10 @@ On ajoute ensuite les utilisateurs enregistrés sur les clients ainsi que leur m
     root Cleartext-Password := "testtest"
      Service-Type = NAS-Prompt-User,
      Cisco-AVPair = "shell:priv-lvl=15"
+     
+Important, on doit redémarrer le service Freeradius pour prendre en compte les changements
+     service freeradius start
+     service freeradius reload
 
 ## Configuration des routeurs R1 R2 R3 comme clients Radius
 
@@ -39,6 +43,11 @@ On ajoute ensuite les utilisateurs enregistrés sur les clients ainsi que leur m
 
     ! Autorise l'authentification AAA associer au nouveau serveur Radius
     aaa authentication login default group radius local
+    
+    aaa authorization exec default group radius local
+    
+    ip radius source-interface G0/0
+    radius-server attribute 6 on-for-login-auth
 
 ## Diagnostics
 
