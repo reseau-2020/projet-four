@@ -31,10 +31,14 @@ Sur le Cisco nous avons créé trois zone :
 - Lan : `zone security internet`
 - DMZ : `zone security dmz`
 
+Succintement, les protocoles autorisés entre zones sont : 
+- lan -> internet :  http, https, dns, icmp, ssh
+- lan -> dmz : http, https, ssh, icmp
+- internet -> dmz : http, https
+- dmz -> internet :  http, https, dns, icmp, ssh
+ 
 ### VPN
-Nous avons monté un tunnel entre les deux sites via 
-crypto ipsec transform-set to-fortigate-set esp-des esp-md5-hmac
- mode tunnel
+Nous avons monté un tunnel entre les deux sites via une authentification `esp-des` et un encryptage `esp-md5-hmac`. La différence des pare-feux de chaque côtés ainsi que les versions limitées offertes par *GNS3* ne nous ont pas permis d'avoir un tunnel 100% efficace. Il se monte bien dans le sens **Site Principal** => **Site Distant**, mais pas inversement.
 
 ## 12 SNMP
 ## 13 SYSLOG
