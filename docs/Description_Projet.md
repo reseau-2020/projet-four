@@ -33,6 +33,11 @@ po4  | g0/0, g1/0 | AS2-DS2
 po5  | g0/1, g1/1 | AS2-DS1
 
 ## 6 HSRP
+Le HSRP permet d'obtenir une continuité de service LAN sur les routeurs et assurer une diponibilité de passerelle d'un réseau en cas de problème. 
+Sur DS1 HSRP est active pour VLAN10 et VLAN30.
+sur DS2 HSRP est active pour VLAN20 et VLAN40.
+L'adresse IP virtuelle associée au groupe est la passerelle du vlan. 
+
 ## 7 DHCP & DNS
 Les services *DHCP* et *DNS* sont déployés sur *DS1* et *DS2*, en IPv4 et IPv6.
 
@@ -54,9 +59,11 @@ rtt min/avg/max/mdev = 12.166/12.619/12.997/0.320 ms
 
 ## 8 EIGRP
 Le protocol de routage implémenté sur les périphérques de couche 3 : *R1*, *R2*, *R3*, *DS1* & *DS2* est *EIGRP*, son id est 1. Le protocol est déployé en IPv4 et Ipv6.
+
 ## 9 NAT
 Nous avons choisi la méthode de traduction dynamique overload (PAT) avec une seule IP globale sur *R1*. 
 Après la défintion des adresses locales soumise au NAT, nous avons déployé la régle NAT sur l'interface connecté au nuage G0/1 qui est l'*outside interface*. Les autres interfaces sont définies comme *inside interface*
+
 ## 10 IPv6
 ## 11 Pare-feux & VPN IPsec
 ### Pare-feux
@@ -78,15 +85,17 @@ Nouss n'avons pas créé de zones dmz sur le site distant, ce dernier nous étan
 Nous avons monté un tunnel entre les deux sites via une authentification `esp-des` et un encryptage `esp-md5-hmac`. La différence des pare-feux de chaque côtés ainsi que les versions limitées offertes par *GNS3* ne nous ont pas permis d'avoir un tunnel 100% efficace. Il se monte bien dans le sens **Site Principal** => **Site Distant**, mais pas inversement.
 
 ## 12 SNMP
-Le protocole SNMP permet la supervision et le diagnositque des problèmes. Dans notre topologie nous nous avons configuré le SNMP de manière à ce que la communauté private soit activée en mode Read Only (RO), nous avons activé toute les traps snmp qui seront envoyées et stokées sur le serveur *serveur-log*.
+Le protocole SNMP permet la supervision et le diagnositque des problèmes. Dans notre topologie nous nous avons configuré le SNMPv2c de manière à ce que la communauté private soit activée en mode Read Only (RO), nous avons activé toutes les traps snmp qui seront envoyées et stokées sur le serveur *serveur-log*.
 
 ## 13 SYSLOG
 Nous avons configuré dans un premier lieu la machine centos *server-log* comme serveur syslog. Ensuite, nous avons configuré les client syslog sur les postes de travail et sur tout les éléments CISCO.
 
 ## 14 NTP
 Dans le but de sybchroniser l'horloge locale de notre réseau informatique, nous avons implémenté le NTP et nous avons choisi comme référence le serveur *pool.ntp.org*.
+
 ## 15 Radius
 ## 16 Switchport port Security
 Nous avons activé la fonction de sécurité des ports de communtation afin de limiter les adresses autorisées à envoyer du trafic sur des ports de commutation individuels. Ceci est activé sur ports access de AS1 et AS2. 
+
 ## 17 Fiabilité
 
