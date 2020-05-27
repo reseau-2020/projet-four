@@ -1,7 +1,7 @@
 # Gestion des accès aux routeurs via un serveur Radius
-## Création du serveur freeRadius sur un terminal Ubuntu
+### Création du serveur freeRadius sur un terminal Ubuntu
 
-On a choisit de rajouter un pc ubuntu sur le switch relié a R3 pour gérer les authentification de R1 R2 R3. 
+On a choisit de rajouter un pc ubuntu sur le switch relié a R3 pour gérer les authentification sur les périphériques de la couche core. 
 
     ! Installation du paquet freeradius
     apt-get update
@@ -21,19 +21,23 @@ On ajoute les différents clients pour lesquels on utilisera l'authentification 
     shortname = R3
     }
 
-On ajoute ensuite les utilisateurs enregistrés sur les clients ainsi que leur mot de passe dans un deuxième fichier. On fixe le niveau de privilège (15=max).
+On ajoute ensuite les utilisateurs enregistrés sur les clients ainsi que leur mot de passe dans un deuxième fichier. On fixe le niveau de privilège (15=max). On a choisit d'ajouter un admin (lvl 15) et un utilisateur de base (lvl 1).
 
     vi users
     root Cleartext-Password := "testtest"
      Service-Type = NAS-Prompt-User,
      Cisco-AVPair = "shell:priv-lvl=15"
      
-Important, on doit redémarrer le service Freeradius pour prendre en compte les changements
+    user Cleartext-Password := "123"
+     Service-Type = NAS-Prompt-User,
+     Cisco-AVPair = "shell:priv-lvl=1"
+     
+**Important**, on doit redémarrer le service Freeradius pour prendre en compte les changements.
 
      service freeradius start
      service freeradius reload
 
-## Configuration des routeurs R1 R2 R3 comme clients Radius
+### Configuration des routeurs R1 R2 R3 comme clients Radius
     
     privilege exec all level 7 show running-config
     privilege exec level 5 show
@@ -46,7 +50,7 @@ Important, on doit redémarrer le service Freeradius pour prendre en compte les 
      address ipv4 10.32.203.3 auth-port 1812 acct-port 1813
      key password
 
-    ! Autorise l'authentification AAA associer au nouveau serveur Radius
+    ! Autorise l'authentification AAA associé au nouveau serveur Radius
     
     aaa authentication login AuthList1 local group radius none
     aaa authorization exec AuthList1 local group radius none
@@ -65,8 +69,7 @@ Important, on doit redémarrer le service Freeradius pour prendre en compte les 
     login authentication AuthList1
     authorization exec AuthList1
     
-    
-## Diagnostics
+### Diagnostics
 
     show run | in radius
     aaa authentication login default group radius local
