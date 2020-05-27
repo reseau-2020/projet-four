@@ -75,8 +75,8 @@ SW-CTRL | Ethernet4 is in access  mode |  connected to DS1 on port Gi3/3 |  |
 SW-CTRL | Ethernet5 is in access  mode |  connected to DS2 on port Gi3/3 |  | 
 SW-CTRL | Ethernet6 is in access  mode |  connected to AS1 on port Gi3/3 |  | 
 SW-CTRL | Ethernet7 is in access  mode |  connected to AS2 on port Gi3/3 |  | 
-Centos8-1  | eth0  | connected to SW-R1 on port Ethernet1 |   |  `10.32.201.2`
-Centos8-2  | eth0  | connected to SW-R1 on port Ethernet2 |   |  `10.32.201.3`
+Centos8-1  | eth0  | connected to SW-R1 on port Ethernet1 | `10.32.201.2`  |  
+Centos8-2  | eth0  | connected to SW-R1 on port Ethernet2 | `10.32.201.3`  |  
 
 ## Site distant
 
