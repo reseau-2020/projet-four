@@ -1,4 +1,4 @@
-'''
+
 ! Vérification de la redondance STP:
   
 1) Ping continu du pc1 du VLAN 10 vers sa passerelle DS1 avec rupture de la liaison Po1
