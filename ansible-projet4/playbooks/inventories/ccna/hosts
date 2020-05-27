@@ -15,8 +15,9 @@ AS1
 AS2
 
 [stick]
-SW0
-SW1
+SW-R1
+SW-R2
+SW-R3
 
 [blocks:children]
 distribution
