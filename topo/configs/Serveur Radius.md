@@ -34,7 +34,10 @@ Important, on doit redémarrer le service Freeradius pour prendre en compte les 
      service freeradius reload
 
 ## Configuration des routeurs R1 R2 R3 comme clients Radius
-
+    
+    privilege exec all level 7 show running-config
+    privilege exec level 5 show
+    
     ! Activation de aaa
     aaa new-model
     
@@ -44,23 +47,24 @@ Important, on doit redémarrer le service Freeradius pour prendre en compte les 
      key password
 
     ! Autorise l'authentification AAA associer au nouveau serveur Radius
-    aaa authentication login default local
-    aaa authorization exec default local
     
-    aaa authentication login AuthList1 local group radius
-    aaa authorization exec AuthList1 local group radius
+    aaa authentication login AuthList1 local group radius none
+    aaa authorization exec AuthList1 local group radius none
     
-    ip radius source-interface G0/0
+    ! Ajoute une interface de connexion vers le serveur Radius
+    ip radius source-interface G0/3
     radius-server attribute 6 on-for-login-auth
-
+    
+    ! On configure les lines pour s'authentifier en AAA via le groupe radius
     aaa authorization console
     line vty 0 4
     login authentication AuthList1
     authorization exec AuthList1
     exit
     line con 0
-    login authentication default
-    authorization exec default
+    login authentication AuthList1
+    authorization exec AuthList1
+    
     
 ## Diagnostics
 
