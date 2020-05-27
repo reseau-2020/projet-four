@@ -58,7 +58,7 @@ PING test.tf (51.68.114.75) 56(84) bytes of data.
 rtt min/avg/max/mdev = 12.166/12.619/12.997/0.320 ms
 ````
 
-## 8 EIGRP
+## 8 Protocole de routage EIGRP
 
 Pour le routage entre la couche Distribution et la couche Core nous avons choisi d'utiliser le protocole de routage dynamique EIGRP notamment pour sa facilité de déploiement (vs OSPF) en IPv6.
 EIGRP était un IGP propriétaire CISCO mais depuis 2013 il est devenu un standard de l'IETF partiellement ouvert.
