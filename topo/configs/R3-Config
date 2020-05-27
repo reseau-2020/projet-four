@@ -1,4 +1,4 @@
-'''
+````
 ! Configuration initiale
 conf t
  hostname R3
@@ -86,7 +86,7 @@ router eigrp 1
  end
 
 ! wr
-
+````
 
 
 
