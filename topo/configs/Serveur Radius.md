@@ -29,6 +29,7 @@ On ajoute ensuite les utilisateurs enregistrés sur les clients ainsi que leur m
      Cisco-AVPair = "shell:priv-lvl=15"
      
 Important, on doit redémarrer le service Freeradius pour prendre en compte les changements
+
      service freeradius start
      service freeradius reload
 
@@ -36,19 +37,31 @@ Important, on doit redémarrer le service Freeradius pour prendre en compte les 
 
     ! Activation de aaa
     aaa new-model
+    
     ! Ajout d'un serveur radius avec son IPv4 et ports d'authentification
     radius server Radius-server
-    address ipv4 10.32.203.3 auth-port 1812 acct-port 1813
-    key password
+     address ipv4 10.32.203.3 auth-port 1812 acct-port 1813
+     key password
 
     ! Autorise l'authentification AAA associer au nouveau serveur Radius
-    aaa authentication login default group radius local
+    aaa authentication login default local
+    aaa authorization exec default local
     
-    aaa authorization exec default group radius local
+    aaa authentication login AuthList1 local group radius
+    aaa authorization exec AuthList1 local group radius
     
     ip radius source-interface G0/0
     radius-server attribute 6 on-for-login-auth
 
+    aaa authorization console
+    line vty 0 4
+    login authentication AuthList1
+    authorization exec AuthList1
+    exit
+    line con 0
+    login authentication default
+    authorization exec default
+    
 ## Diagnostics
 
     show run | in radius
