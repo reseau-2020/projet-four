@@ -8,6 +8,8 @@
     service password-encryption
     crypto key generate rsa modulus 2048
     ip ssh version 2
+    ip ssh time-out 90
+    ip ssh authentication-retries 2
     ip scp enable
     line vty 0 4
     transport input ssh
