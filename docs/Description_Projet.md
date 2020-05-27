@@ -23,7 +23,19 @@ L'adressage IPv6
 ## 8 EIGRP
 ## 9 NAT
 ## 10 IPv6
-## 11 Pare-feu & VPN IPsec
+## 11 Pare-feux & VPN IPsec
+### Pare-feux
+Nous avons mis en place deux pare-feux : un ZBF de Cisco dans le site principal et un pare-feu fortigate dans le site distant.
+Sur le Cisco nous avons créé trois zone :
+- Internet : `zone security lan`
+- Lan : `zone security internet`
+- DMZ : `zone security dmz`
+
+### VPN
+Nous avons monté un tunnel entre les deux sites via 
+crypto ipsec transform-set to-fortigate-set esp-des esp-md5-hmac
+ mode tunnel
+
 ## 12 SNMP
 ## 13 SYSLOG
 ## 14 NTP
