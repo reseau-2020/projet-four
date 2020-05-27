@@ -25,7 +25,7 @@ L'adressage IPv6
 ## 10 IPv6
 ## 11 Pare-feux & VPN IPsec
 ### Pare-feux
-Nous avons mis en place deux pare-feux : un ZBF de Cisco dans le site principal et un pare-feu fortigate dans le site distant.
+Nous avons mis en place deux pare-feux : un ZBF de Cisco sur *R1* dans le site principal et un pare-feu fortigate dans le site distant.
 Sur le Cisco nous avons créé trois zone :
 - Internet : `zone security lan`
 - Lan : `zone security internet`
