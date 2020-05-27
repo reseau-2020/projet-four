@@ -64,7 +64,7 @@ Pour le routage entre la couche Distribution et la couche Core nous avons choisi
 EIGRP était un IGP propriétaire CISCO mais depuis 2013 il est devenu un standard de l'IETF partiellement ouvert.
 Il utilise un protocole à vecteur de distances IP avec une distance administrative en interne de 90.
 
-### 1. Configuration
+### 8.1 Configuration
 
 Le routage EIGRP est activé sur les périphériques de couche 3 (R1, R2, R3, DS1 et DS2) sur le système autonome AS 1.
 Un router-ID est associé à chaque routeur (1.1.1.1, 2.2.2.2,...) pour les différencier. Les interfaces qui ne participent pas au routage dynamique en local (interfaces VLAN ou vers internet) seront ajoutés
@@ -87,7 +87,7 @@ __Exemple sur R2:__
      network 10.16.215.0
      network 10.16.225.0
      
-### 2. Vérification
+### 8.2 Vérification
 
 Pour déboguer les erreurs EIGRP on peut utiliser les commandes suivantes :
 
@@ -131,9 +131,7 @@ Nous avons configuré dans un premier lieu la machine centos *server-log* comme 
 Dans le but de sybchroniser l'horloge locale de notre réseau informatique, nous avons implémenté le NTP et nous avons choisi comme référence le serveur *pool.ntp.org*.
 
 ## 15 Sécurité 
-### Radius
-
-# Gestion des accès aux routeurs via un serveur Radius
+## Gestion des accès aux routeurs via un serveur Radius
 ### Création du serveur freeRadius sur un terminal Ubuntu
 
 On a choisit de rajouter un pc ubuntu sur le switch relié a R3 pour gérer les authentification sur les périphériques de la couche core. 
