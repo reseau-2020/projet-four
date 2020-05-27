@@ -9,9 +9,9 @@ categories: welcome
 
 Tâches réalisées aujourd’hui
 
-- pb de tunnel entre le site distant el le site principal
-- mise en place d'un serveur Radius
-- tests de fiabilités
+- Essayer de résoudre le pb de connexion en ssh à partir du site distant vers le site principal(site-cisco)
+- mise en place d'un serveur Radius (serveur de sécurité)
+- Réaliser des tests de fiabilité: vérifica+on de la redondance STP 
 
 Tâches à réaliser pour 28/05/2020
 
