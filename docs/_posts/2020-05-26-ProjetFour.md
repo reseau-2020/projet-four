@@ -16,4 +16,5 @@ Tâches réalisées aujourd’hui
 Tâches à réaliser pour 27/05/2020
 
 - Régler les bugs
-- Sauvgrder la config avec Ansible
+- Etudier la fiabilité et l'aspect sécuritaire de la topo
+- Sauvgarder la config avec Ansible
