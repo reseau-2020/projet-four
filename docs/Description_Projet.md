@@ -22,10 +22,20 @@ L'adressage IPv6
 Le protocol *Spanning-tree* est implémenté sur les 4 périphériques de couche 2 : *AS1*, *AS2*, *DS1* & *DS2*. *DS1* est `root primary` pour les vlans 10, 30 et 99 (natif) et `secondary` pour les vlans 20 et 40. Respectivement, *DS2* est `root primary` pour les vlans 20 et 40 et `secondary` pour les vlans 10, 30 et 99.
 
 ## 5 Etherchannel
+Nous avons monté 5 ports Etherchannel :
+
+Ports channel | Ports physique | Commutateurs
+|-------------|----------------|-------------
+po1  | g0/0, g1/0 | AS1-DS1
+po2  | g0/1, g1/1 | AS1-DS2
+po3  | g0/2, g1/2 | DS1-DS2
+po4  | g0/0, g1/0 | AS2-DS2
+po5  | g0/1, g1/1 | AS2-DS1
+
 ## 6 HSRP
 ## 7 DHCP & DNS
 ## 8 EIGRP
-Le protocol de routage implémenté sur les périphérques de couche 3 : *R1*, *R2*, *R3*, *DS1* & *DS2* est *EIGRP*.
+Le protocol de routage implémenté sur les périphérques de couche 3 : *R1*, *R2*, *R3*, *DS1* & *DS2* est *EIGRP*, son id est 1. Le protocol est déployé en IPv4 et Ipv6.
 ## 9 NAT
 ## 10 IPv6
 ## 11 Pare-feux & VPN IPsec
