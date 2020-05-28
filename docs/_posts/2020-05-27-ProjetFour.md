@@ -17,3 +17,5 @@ Tâches à réaliser pour 28/05/2020
 
 - Sauvgarder la config avec Ansible
 - Compléter les docs
+
+![2020-05-27](20200527_planning.png)
