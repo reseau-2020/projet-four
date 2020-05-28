@@ -220,6 +220,20 @@ PING test.tf (51.68.114.75) 56(84) bytes of data.
 rtt min/avg/max/mdev = 12.166/12.619/12.997/0.320 ms
 ````
 
+et en IPv6
+````
+[root@pc8 ~]# ping6 test.tf
+PING test.tf(2001:41d0:305:1000::1d8a (2001:41d0:305:1000::1d8a)) 56 data bytes
+64 bytes from 2001:41d0:305:1000::1d8a (2001:41d0:305:1000::1d8a): icmp_seq=1 ttl=49 time=18.8 ms
+64 bytes from 2001:41d0:305:1000::1d8a (2001:41d0:305:1000::1d8a): icmp_seq=2 ttl=49 time=14.6 ms
+64 bytes from 2001:41d0:305:1000::1d8a (2001:41d0:305:1000::1d8a): icmp_seq=3 ttl=49 time=14.3 ms
+64 bytes from 2001:41d0:305:1000::1d8a (2001:41d0:305:1000::1d8a): icmp_seq=4 ttl=49 time=14.9 ms
+
+--- test.tf ping statistics ---
+4 packets transmitted, 4 received, 0% packet loss, time 3004ms
+rtt min/avg/max/mdev = 14.380/15.698/18.810/1.815 ms
+````
+
 ## 8 Protocole de routage EIGRP
 
 Pour le routage entre la couche Distribution et la couche Core nous avons choisi d'utiliser le protocole de routage dynamique EIGRP notamment pour sa facilité de déploiement (vs OSPF) en IPv6.
