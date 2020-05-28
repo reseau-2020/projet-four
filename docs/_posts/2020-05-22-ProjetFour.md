@@ -19,3 +19,5 @@ Tâches à réaliser pour 25/05/2020
 -	Implémenter NTP, le syslog et SNMP
 -	Elaborer un cas qui éprouve la fiabilité de la solution et un autre qui éprouve la sécurité de la solution
 -	Partir sur ansible
+
+*![2020-05-22](20200522_planning.png)
