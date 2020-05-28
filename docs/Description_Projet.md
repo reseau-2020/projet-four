@@ -15,7 +15,48 @@ Les *VLANs 10, 20, 30 et 40* prennent les adresses `10.16.10.X`, `10.16.20.X`, `
 Pour le site distant nous avons utilisé des adresses privées en `192.168.150.X`.
 
 ### Ipv6
-L'adressage IPv6
+Concernant l'adressage IPv6 (/64 par défaut), les adresses link-local sont :
+- sur R1 : `fe80::1` (`fe80::cafe:4` sur g0/1 qui connecte l'internet)
+- sur R1 : `fe80::2`
+- sur R1 : `fe80::3`
+- sur R1 : `fe80::d:1`
+- sur R1 : `fe80::d:2`
+- sur DS1 VLAN 10 : `fe80::d1:10`
+- sur DS1 VLAN 20 : `fe80::d1:20`
+- sur DS1 VLAN 30 : `fe80::d1:30`
+- sur DS1 VLAN 40 : `fe80::d1:40`
+- sur DS2 VLAN 10 : `fe80::d2:10`
+- sur DS2 VLAN 20 : `fe80::d2:20`
+- sur DS2 VLAN 30 : `fe80::d2:30`
+- sur DS2 VLAN 40 : `fe80::d2:40`
+
+les adresses privées sont :
+- sur R1 (g0/0) : `2001:470:c814:4001::1:1`
+- sur R2 (g0/0) : `2001:470:c814:4002::2:1`
+- sur R3 (g0/0) : `2001:470:c814:4003::3:1`
+- sur DS1 VLAN 10 : `2001:470:c814:4011::`
+- sur DS1 VLAN 20 : `2001:470:c814:4021::`
+- sur DS1 VLAN 30 : `2001:470:c814:4031::`
+- sur DS1 VLAN 40 : `2001:470:c814:4041::`
+- sur DS2 VLAN 10 : `2001:470:c814:4012::`
+- sur DS2 VLAN 20 : `2001:470:c814:4022::`
+- sur DS2 VLAN 30 : `2001:470:c814:4032::`
+- sur DS2 VLAN 40 : `2001:470:c814:4042::`
+
+et les adresses publiques sont :
+- sur R1 (g0/0) : `fd00:fd00:fd00:1::1:1`
+- sur R2 (g0/0) : `fd00:fd00:fd00:2::2:1`
+- sur R3 (g0/0) : `fd00:fd00:fd00:3::3:1`
+- sur DS1 VLAN 10 : `fd00:1ab:10::1`
+- sur DS1 VLAN 20 : `fd00:1ab:20::1`
+- sur DS1 VLAN 30 : `fd00:1ab:30::1`
+- sur DS1 VLAN 40 : `fd00:1ab:40::1`
+- sur DS2 VLAN 10 : `fd00:1ab:10::2`
+- sur DS2 VLAN 20 : `fd00:1ab:20::2`
+- sur DS2 VLAN 30 : `fd00:1ab:30::2`
+- sur DS2 VLAN 40 : `fd00:1ab:40::2`
+
+Nous n'avons pas attribué d'adresses IPv6 dans le site distant par manque de temps pour tester le tunnel VPN en IPv6. *DS1* et *DS2* jouent le rôle de serveur DHCPv6.
 
 ## 3 Les VLANs
 
