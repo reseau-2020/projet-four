@@ -33,14 +33,30 @@ Le trunking est activé sur les interfaces de liaison entre la couche Access et 
      switchport mode trunk                    ! --> On force le passage du mode DTP à "ON" pour activer le trunking
      no shutdown
 
+## Adressage des Vlans
+
 On configure ensuite les interfaces virtuelles VLAN que l'on a créee sur différentes plages d'adresses IPv4 et IPv6.
-Dans notre topologie on a choisit de faire varier le troisième octet du bloque d'adresses IPv4 pour différentier logiquement les VLANs.
+Dans notre topologie on a choisit de faire varier le troisième octet du bloque d'adresses IPv4 pour différentier logiquement les périphériques des différents VLANs.
 
-        |VLAN | Adresses ipv4  |  Adresses ipv6
-        |-----|----|----|
-        | VLAN10 | `10.16.10.0/24` | `fe80::d1:10` ; `fd00:1ab:10::1` ; `2001:470:c814:4011::`
-        | VLAN20 | `10.16.20.0/24` | `fe80::d1:20` ; `fd00:1ab:20::1` ; `2001:470:c814:4021::` 
-        | VLAN30 | `10.16.30.0/24` | `fe80::d1:30` ; `fd00:1ab:30::1` ; `2001:470:c814:4031::`
-        | VLAN40 | `10.16.40.0/24` | `fe80::d1:40` ; `fd00:1ab:40::1` ; `2001:470:c814:4041::`
+   |VLAN | Adresses ipv4  |  Adresses ipv6
+   |-----|----|----|
+   | VLAN10 | `10.16.10.0/24` | `fe80::d1:10` ; `fd00:1ab:10::1` ; `2001:470:c814:4011::`
+   | VLAN20 | `10.16.20.0/24` | `fe80::d1:20` ; `fd00:1ab:20::1` ; `2001:470:c814:4021::` 
+   | VLAN30 | `10.16.30.0/24` | `fe80::d1:30` ; `fd00:1ab:30::1` ; `2001:470:c814:4031::`
+   | VLAN40 | `10.16.40.0/24` | `fe80::d1:40` ; `fd00:1ab:40::1` ; `2001:470:c814:4041::`
+   
+On configure les interfaces VLANs sur les périphériques DS1 et DS2. Sur le dernier octet on choisit d'attibuer 252 sur les interfaces de DS1 et 253 pour celles de DS2.
 
+__Exemple vlan10 sur DS1:__
+
+    interface vlan 10
+     ip address 10.16.10.252 255.255.255.0
+     ipv6 address fe80::d1:10 link-local
+     ipv6 address fd00:1ab:10::1/64
+     ipv6 address 2001:470:c814:4011::/64
+     no shutdown
+     ...
+ 
+ Pour la mise en place du protocole de redondance de premier lien avec HSRP on utilisera les adresses virtuelles terminant en .254 (_ex: 10.16.10.254_) on utilisera aussi ces adresses comme passerelles lors de la configuration du DHCP.
+ (Voir chapitres HSRP et DHCP)
 
