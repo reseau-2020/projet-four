@@ -15,7 +15,8 @@ PING 10.16.10.254 (10.16.10.254) 56(84) bytes of data.
 64 bytes from 10.16.10.254: icmp_seq=7 ttl=255 time=4.06 ms
 64 bytes from 10.16.10.254: icmp_seq=8 ttl=255 time=4.48 ms
 64 bytes from 10.16.10.254: icmp_seq=9 ttl=255 time=5.24 ms
-64 bytes from 10.16.10.254: icmp_seq=10 ttl=255 time=4.25 ms !on fait tomber po1 sur DS1, le délai éprouvé est celui de RSTP (paquets perdus)
+64 bytes from 10.16.10.254: icmp_seq=10 ttl=255 time=4.25 ms 
+!on fait tomber po1 sur DS1, le délai éprouvé est celui de RSTP (paquets perdus)
 From 10.16.10.130 icmp_seq=46 Destination Host Unreachable
 From 10.16.10.130 icmp_seq=47 Destination Host Unreachable
 From 10.16.10.130 icmp_seq=48 Destination Host Unreachable
@@ -32,7 +33,8 @@ From 10.16.10.130 icmp_seq=58 Destination Host Unreachable
 From 10.16.10.130 icmp_seq=59 Destination Host Unreachable
 From 10.16.10.130 icmp_seq=60 Destination Host Unreachable
 From 10.16.10.130 icmp_seq=61 Destination Host Unreachable
-From 10.16.10.253 icmp_seq=62 Redirect Host(New nexthop: 10.16.10.254) ! La passerelle du VLAN 10 est maintenant joignable via chemin sous-opGmal par DS2
+From 10.16.10.253 icmp_seq=62 Redirect Host(New nexthop: 10.16.10.254) 
+! La passerelle du VLAN 10 est maintenant joignable via chemin sous-opGmal par DS2
 From 10.16.10.253: icmp_seq=62 Redirect Host(New nexthop: 10.16.10.254)
 64 bytes from 10.16.10.254: icmp_seq=62 ttl=255 time=16.2 ms
 64 bytes from 10.16.10.254: icmp_seq=63 ttl=255 time=6.55 ms
