@@ -1,7 +1,8 @@
 ````
 ! Vérification de la redondance STP et HSRP:
   
-1) Ping continu du pc1 du VLAN 10 vers sa passerelle DS1 avec rupture de la liaison Po1. A noter que cette épreuve ne vérifie que l’oeuvre de Spanning-Tree et non celle de HSRP.
+1) Ping continu du pc1 du VLAN 10 vers sa passerelle DS1 avec rupture de la liaison Po1. 
+A noter que cette épreuve ne vérifie que l’oeuvre de Spanning-Tree et non celle de HSRP.
 
 [root@pc1 ~]# ping 10.16.10.254
 PING 10.16.10.254 (10.16.10.254) 56(84) bytes of data.
@@ -14,7 +15,7 @@ PING 10.16.10.254 (10.16.10.254) 56(84) bytes of data.
 64 bytes from 10.16.10.254: icmp_seq=7 ttl=255 time=4.06 ms
 64 bytes from 10.16.10.254: icmp_seq=8 ttl=255 time=4.48 ms
 64 bytes from 10.16.10.254: icmp_seq=9 ttl=255 time=5.24 ms
-64 bytes from 10.16.10.254: icmp_seq=10 ttl=255 time=4.25 ms ! on fait tomber po1 sur DS1, le délai éprouvé est celui de RSTP (paquets perdus)
+64 bytes from 10.16.10.254: icmp_seq=10 ttl=255 time=4.25 ms !on fait tomber po1 sur DS1, le délai éprouvé est celui de RSTP (paquets perdus)
 From 10.16.10.130 icmp_seq=46 Destination Host Unreachable
 From 10.16.10.130 icmp_seq=47 Destination Host Unreachable
 From 10.16.10.130 icmp_seq=48 Destination Host Unreachable
