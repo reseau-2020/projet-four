@@ -227,5 +227,6 @@ Des tests de connectivité en ipv4 et en ipv6 ont été établis en interne, ver
 ### Vérification de la redondance STP
 L'objectif de vérification du protocole Rapid Spanning-Tree est de prouver ses capacités de répartition de la charge des VLANs sur des liaisons Trunk alternatives tout en assurant sa mission de reprise suite à une rupture d'une liaison entre un commutateur de couche "Access" et un commutateur de couche "Distribution". Par exemple, dans le cadre de ce projet, grâce à Spanning-Tree, en cas de rupture de la liaison Po1 de la topologie, le trafic de VLANs 10 sera transféré via le commutateur "root secondary" alternatif qui est DS2 dans notre cas. 
  https://github.com/reseau-2020/projet-four/blob/master/topo/tests/Tests_fiabilit%C3%A9_STP.md
+ ### Vérification de HSPR
 
 
