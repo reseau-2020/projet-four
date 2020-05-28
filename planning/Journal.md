@@ -84,3 +84,15 @@ Tâches à réaliser pour 28/05/2020
 
 - Sauvgarder la config avec Ansible
 - Compléter les docs
+
+# Jour 8 : 28/05/2020
+
+Tâches réalisées aujourd’hui
+
+- backup des configs avec Ansible
+- documentation
+- powerpoint
+
+Tâches à réaliser pour 29/05/2020
+
+- powerpoint
