@@ -38,7 +38,11 @@ Le HSRP permet d'obtenir une continuité de service LAN sur les routeurs et assu
 Sur DS1 HSRP est active pour VLAN10 et VLAN30.
 sur DS2 HSRP est active pour VLAN20 et VLAN40.
 L'adresse IP virtuelle associée au groupe est la passerelle du vlan. 
-HSRP est implémenté en IPv4 et IPv6
+HSRP est implémenté en IPv4 et IPv6.
+Pour la vérification de l'implémentation du protocole HSPR, on a utilisé les commandes suivantes:
+- show standby
+- show standby neighbors
+- show standby brief
 
 ## 7 DHCP & DNS
 Les services *DHCP* et *DNS* sont déployés sur *DS1* et *DS2*, en IPv4 et IPv6.
