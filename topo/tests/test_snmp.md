@@ -1,6 +1,7 @@
-````
-!Verification de la configuration SNMP sur les routeurs/ switchs
+### Test sur les éléments Cisco
 
+!Verification de la configuration SNMP sur les routeurs/ switchs
+````
 R1#sh snmp
 0 SNMP packets input
     0 Bad SNMP version errors
@@ -133,58 +134,11 @@ SNMP global trap: enabled
 SNMP logging: enabled
     Logging to 10.32.202.3.162, 0/10, 24 sent, 72 dropped.
 
-AS1#sh snmp
-Chassis: 9DI4XBES6D0
-0 SNMP packets input
-    0 Bad SNMP version errors
-    0 Unknown community name
-    0 Illegal operation for community name supplied
-    0 Encoding errors
-    0 Number of requested variables
-    0 Number of altered variables
-    0 Get-request PDUs
-    0 Get-next PDUs
-    0 Set-request PDUs
-    0 Input queue packet drops (Maximum queue size 1000)
-0 SNMP packets output
-    0 Too big errors (Maximum packet size 1500)
-    0 No such name errors
-    0 Bad values errors
-    0 General errors
-    0 Response PDUs
-    0 Trap PDUs
-SNMP global trap: enabled
-
-SNMP logging: enabled
-    Logging to 10.32.202.3.162, 0/10, 0 sent, 0 dropped.
-
-AS2#sh snmp
-Chassis: 9DI4XBES6D0
-0 SNMP packets input
-    0 Bad SNMP version errors
-    0 Unknown community name
-    0 Illegal operation for community name supplied
-    0 Encoding errors
-    0 Number of requested variables
-    0 Number of altered variables
-    0 Get-request PDUs
-    0 Get-next PDUs
-    0 Set-request PDUs
-    0 Input queue packet drops (Maximum queue size 1000)
-58 SNMP packets output
-    0 Too big errors (Maximum packet size 1500)
-    0 No such name errors
-    0 Bad values errors
-    0 General errors
-    0 Response PDUs
-    58 Trap PDUs
-SNMP global trap: enabled
-
-SNMP logging: enabled
-    Logging to 10.32.202.3.162, 0/10, 14 sent, 44 dropped.
 ````
-````
+### Test sur le serveur Snmp - syslog
+
 ! Collecte des traps snmp du serveur Centos 7
+````
 [root@pc2-r2 ~]# snmpwalk -v2c -cprivate 10.16.134.2
 SNMPv2-MIB::sysDescr.0 = STRING: Cisco IOS Software, vios_l2 Software (vios_l2-ADVENTERPRISEK9-M), Experimental Version 15.2(20170321:233949) [mmen 101]
 Copyright (c) 1986-2017 by Cisco Systems, Inc.
