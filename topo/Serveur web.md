@@ -1,6 +1,6 @@
 ## Configuration d'un serveur web apache2 sur le server de la DMZ du réseau Remote (Fortigate)
 
-### Configuration du serveur web Ubuntu
+### Serveur web sur une station Ubuntu
 
 Sur le serveur web nous devons d'abord paramétrer une adresse IP fixe cohérente avec le bloque IPv4 choisit pour le réseau de la DMZ : 192.168.10.0/24. Sur Ubuntu nous faisons les modifications d'adressage avec "Netplan": 
 
@@ -30,11 +30,11 @@ Nous devons ensuite installer un serveur HTTP sur la machine. Nous utiliserons a
     # vérifier que le service apache2 est bien sur écoute du port 80
     netstat -antp | grep apache2
 
-### Configuration Virtual IP sur Fortigate pour rediriger traffic http entrant de 192.168.122.29:80 vers 192.168.10.1:80 Idem pour HTTPS
+### Configuration Virtual IP sur Fortigate pour rediriger traffic HTTP et HTTPS
 
 Pour accéder aux pages web présente sur le serveur de la DMZ depuis l'extérieur (WAN) le traffic HTTP arrivant sur le port 3 (192.168.122.29) du parfeu Fortigate (qui fait aussi office de routeur ici) devra être redirigé vers l'adresse 192.168.10.1 sur le port 80.
 
-On utilise une procédure mise à disposition sur le site de Fortrinet
+On utilise une procédure mise à disposition sur le site de Fortrinet.
 
 Référence: [Fortinet Library](https://docs.fortinet.com/document/fortigate/5.4.0/cookbook/361386 "cliquez ici !")
 
