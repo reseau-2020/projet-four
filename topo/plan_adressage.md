@@ -83,7 +83,7 @@ Centos8-2  | eth0  | connected to SW-R1 on port Ethernet2 | `10.32.201.3`  |
 | Périphérique  |Interfaces  |Infos  | Adresses ipv4  |  Adresses ipv6
 |---|-----|-----|----|----|
 Fortios | Port2 |  connected to Switch1 on port Ethernet0           | `192.168.150.254` | ` `
-Fortios | Port3 |  connected to Switch2 on port Ethernet0           | `192.168.122.27` | ` ` ; ` ` ; ` `
+Fortios | Port3 |  connected to Switch2 on port Ethernet0           | `192.168.122.27` | ` ` 
 Fortios | Port4 |  connected to Server-Ubuntu on port Ethernet0     | `192.1689.10.254` | ` `
 Fortios | Port5 |  connected to Switch2 on port Ethernet2           | ` ` | ` ` 
 Server-Ubuntu | eth0 | connected to fortios-1 on port Port4         | `192.168.10.1` | ` ` 
