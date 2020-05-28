@@ -19,4 +19,4 @@ Tâches à réaliser pour 22/02/2020 :
 - tester les connectivités à l'internet 
 
 
-![image locale](/projet-four/planning/20200520_plannince.png)
+![2020-05-20](20200520_planning.png)
