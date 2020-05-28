@@ -74,7 +74,7 @@ Nous n'avons pas attribué d'adresses IPv6 dans le site distant par manque de te
 
 ## 3 Les VLANs
 
-Pour segmenter logiquement le réseau de la couche Access nous avons créer 4 VLANs pour 4 types d'utilisateurs différents :
+Pour segmenter logiquement le réseau de la couche Access nous avons crée 4 VLANs pour 4 types d'utilisateurs différents :
 
 * VLAN 10 : DATA
 * VLAN 20 : VOICE
@@ -89,13 +89,13 @@ La configuration des VLANs permet de résoudre plusieurs problèmes :
 
 ### 3.1 Configuration
 
-On commence par créer et nommer les différentes VLANs sur les périphériques des couches Access et Distribution (DS1&2, AS1&2):
+On commence par créer et nommer les différents VLANs sur les périphériques des couches Access et Distribution (DS1&2, AS1&2):
 
     vlan 10
     name DATA
     ...
 
-Les interfaces physiques sur lesquelles le trafics de plusieurs vlans doit passer seront montées en mode trunk en ajoutant le protocole d'encapsulation dot1q (IEEE 802.1q).
+Les interfaces physiques sur lesquelles le trafic de plusieurs vlans doit passer seront montées en mode trunk en ajoutant le protocole d'encapsulation dot1q (IEEE 802.1q).
 Ce standard permet de modifier les trames Ethernet pour fournir un mécanisme d'encapsulation qui permet de faire passer le traffic de plusieurs VLANs sur un seul lien physique.
 Le VLAN 99 sera le Vlan Natif, il sera utilisé pour le transport des trames ethernet non taggés sur les interfaces en mode trunk.
 
