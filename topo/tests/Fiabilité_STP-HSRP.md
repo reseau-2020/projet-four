@@ -1,4 +1,4 @@
-﻿
+````
 ! Vérification de la redondance STP et HSRP:
   
 1) Ping continu du pc1 du VLAN 10 vers sa passerelle DS1 avec rupture de la liaison Po1. A noter que cette épreuve ne vérifie que l’oeuvre de Spanning-Tree et non celle de HSRP.
