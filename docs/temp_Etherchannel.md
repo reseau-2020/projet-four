@@ -20,7 +20,7 @@ po5  | g0/1, g1/1 | AS2-DS1
 Le maillage entre liaisons Etherchannels entre les switch Access (AS1&2) et les switch distribution (DS1&2) permettent d'assurer une redondance de liens.
 Pour configurer un lien Etherchannel on assigne 2 interfaces au même channel-group et on active le mode `desirable` pour avoir une configuration dynamique d'Etherchannel avec le périphérique relié au même lien physique.
 
-__Exemple configuration sur DS1__:
+__Exemple configuration sur DS1:__
 
     interface range g0/0,g1/0
      shutdown
