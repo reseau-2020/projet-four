@@ -124,7 +124,8 @@ rtt min/avg/max/mdev = 3.305/6.244/16.256/2.315 ms, pipe 4
 
 ------------------------------------------------------------------------------------------------------------------
 
-2) ping continu de pc1 vers un autre réseau (vers R2 par exemple) avec rupture de passerelle DS1: cette épreuve met en oeuvre la technologie HSRP
+2) ping continu de pc1 vers un autre réseau (vers R2 par exemple) avec rupture 
+de passerelle DS1: cette épreuve met en oeuvre la technologie HSRP
 
 [root@pc1 ~]# ping 10.16.224.2   (connexion vers R2)
 PING 10.16.224.2 (10.16.224.2) 56(84) bytes of data.
@@ -295,7 +296,7 @@ From 10.16.10.130 icmp_seq=107 Destination Host Unreachable
 From 10.16.10.130 icmp_seq=108 Destination Host Unreachable
 From 10.16.10.130 icmp_seq=109 Destination Host Unreachable
 From 10.16.10.130 icmp_seq=110 Destination Host Unreachable
-64 bytes from 10.16.20.1: icmp_seq=111 ttl=63 time=2020 ms  ! Le traffic est acheminé de nouveau vers DS1 (root primaire)
+64 bytes from 10.16.20.1: icmp_seq=111 ttl=63 time=2020 ms  ! Le traffic est acheminé de nouveau vers DS1 
 64 bytes from 10.16.20.1: icmp_seq=112 ttl=63 time=1021 ms
 64 bytes from 10.16.20.1: icmp_seq=113 ttl=63 time=23.0 ms
 64 bytes from 10.16.20.1: icmp_seq=114 ttl=63 time=8.96 ms
