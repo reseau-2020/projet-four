@@ -73,19 +73,14 @@ La route par défaut (vers internet) est distribuée par R1 en activant la comma
 
 __Exemple sur R2:__
 
-    !Activation de routage en ipv4
-    router eigrp 1
+    
+    router eigrp 1              ! --> Activation de routage en ipv4
      passive-interface g0/0
      eigrp router-id 2.2.2.2
      no auto-summary
-     !Ajout des réseaux adjacents
-     network 10.32.202.0
+     network 10.32.202.0        ! --> Ajout réseaux adjacents
      network 10.32.12.0
-     network 10.16.214.0
-     network 10.32.23.0
-     network 10.16.224.0
-     network 10.16.215.0
-     network 10.16.225.0
+     ...
      
 ### 2. Vérification
 
@@ -174,32 +169,26 @@ On ajoute ensuite les utilisateurs enregistrés sur les clients ainsi que leur m
 
 ### Configuration des routeurs R1 R2 R3 comme clients Radius
     
-    privilege exec all level 7 show running-config
-    privilege exec level 5 show
+     privilege exec all level 5 show running-config
+     file privilege 5
+     privilege configure all level 5 logging
+   
+     aaa new-model           ! --> Activation de aaa
     
-    ! Activation de aaa
-    aaa new-model
-    
-    ! Ajout d'un serveur radius avec son IPv4 et ports d'authentification
-    radius server Radius-server
+    radius server Radius-server                             ! --> Ajout d'un serveur radius avec son IPv4 et ports d'authentification
      address ipv4 10.32.203.3 auth-port 1812 acct-port 1813
      key password
-
-    ! Autorise l'authentification AAA associé au nouveau serveur Radius
     
-    aaa authentication login AuthList1 local group radius none
-    aaa authorization exec AuthList1 local group radius none
+    aaa authentication login AuthList1 local group radius none      ! --> Authentification AAA associé au serveur Radius
+    aaa authorization exec AuthList1 local group radius none        ! --> Authorisation AAA associé au serveur Radius
     
-    ! Ajoute une interface de connexion vers le serveur Radius
-    ip radius source-interface G0/3
+    ip radius source-interface G0/3                                 ! --> Ajoute l'interface de connexion vers le serveur Radius
     radius-server attribute 6 on-for-login-auth
     
-    ! On configure les lines pour s'authentifier en AAA via le groupe radius
-    aaa authorization console
+    aaa authorization console                              ! --> Configure les lines pour l'utilisation de AAA avec server radius
     line vty 0 4
     login authentication AuthList1
     authorization exec AuthList1
-    exit
     line con 0
     login authentication AuthList1
     authorization exec AuthList1
