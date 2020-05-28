@@ -36,11 +36,11 @@ Le trunking est activé sur les interfaces de liaison entre la couche Access et 
 On configure ensuite les interfaces virtuelles VLAN que l'on a créee sur différentes plages d'adresses IPv4 et IPv6.
 Dans notre topologie on a choisit de faire varier le troisième octet du bloque d'adresses IPv4 pour différentier logiquement les VLANs.
 
-|VLAN | Adresses ipv4  |  Adresses ipv6
-|-----|----|----|
-| VLAN10 | `10.16.10.0/24` | `fe80::d1:10` ; `fd00:1ab:10::1` ; `2001:470:c814:4011::`
-| VLAN20 | `10.16.20.0/24` | `fe80::d1:20` ; `fd00:1ab:20::1` ; `2001:470:c814:4021::` 
-| VLAN30 | `10.16.30.0/24` | `fe80::d1:30` ; `fd00:1ab:30::1` ; `2001:470:c814:4031::`
-| VLAN40 | `10.16.40.0/24` | `fe80::d1:40` ; `fd00:1ab:40::1` ; `2001:470:c814:4041::`
+        |VLAN | Adresses ipv4  |  Adresses ipv6
+        |-----|----|----|
+        | VLAN10 | `10.16.10.0/24` | `fe80::d1:10` ; `fd00:1ab:10::1` ; `2001:470:c814:4011::`
+        | VLAN20 | `10.16.20.0/24` | `fe80::d1:20` ; `fd00:1ab:20::1` ; `2001:470:c814:4021::` 
+        | VLAN30 | `10.16.30.0/24` | `fe80::d1:30` ; `fd00:1ab:30::1` ; `2001:470:c814:4031::`
+        | VLAN40 | `10.16.40.0/24` | `fe80::d1:40` ; `fd00:1ab:40::1` ; `2001:470:c814:4041::`
 
 
