@@ -381,7 +381,7 @@ Ci dessous, les loggs aperçus sur le serveur syslog suite à une shutdown sur u
 ### NTP
 Dans le but de sybchroniser l'horloge locale de notre réseau informatique, nous avons implémenté le NTP et nous avons choisi comme référence le serveur *pool.ntp.org*.
 
-## 15 Sécurité 
+## 12 Sécurité 
 ## Gestion des accès aux routeurs via un serveur Radius
 ### Création du serveur freeRadius sur un terminal Ubuntu
 
