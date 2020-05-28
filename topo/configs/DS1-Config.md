@@ -1,5 +1,15 @@
 ! Configuration de DS1:
 
+conf t
+ip ssh time-out 90
+ip ssh authentication-retries 2
+line vty 0 4
+logging synchronous
+exi
+line con 0
+logging synchronous
+exi
+
 ! Configuration initiale et connexion aux consoles :
 
     hostname DS1
