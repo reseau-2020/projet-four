@@ -6,6 +6,28 @@ Ce document présente globalement ce que nous avons mis en place grace au logici
 
 ![Capture GNS3](topologie.png)
 
+### Inventaire ressources requises
+
+Ci dessous un tableau avec les ressources matérielles utilisées. 
+
+   |Couche | Ressources | 
+   |-------|----|
+   |Couche access| Deux switchs AS1 et AS2 Cisco IOS Software, vios_l2 Software (vios_l2-ADVENTERPRISEK9-M) Experimental Version 15.2(20170321:233949)|
+   || 8 postes de travail CentOS Linux release 7.5.1804 (Core)|
+   |Couche distribution| deux switchs de distribution DS1 et DS2 Cisco IOS Software, vios_l2 Software (vios_l2-ADVENTERPRISEK9-M), Experimental Version 15.2(20170321:233949)|
+   |Couche core|Trois routeurs R1, R2 et R3 Cisco IOS Software, IOSv Software (VIOS-ADVENTERPRISEK9-M),  Version 15.6(2)T, RELEASE SOFTWARE (fc2) |
+   ||Trois switchs Cisco IOS Software, vios_l2 Software (vCCios_l2-ADVENTERPRISEK9-M), Experimental Version 15.2(20170321:233949)|
+   ||Deux CentOS Linux release 8.1.1911 (Core)|
+   ||Un Ubuntu 18.04.3 LTS (GNU/Linux 4.15.0-62-generic x86_64)|
+   |Site fortigate|Pare-feu fortinet : Model name: FortiGate-VM64-KVM, CPU: QEMU Virtual CPU version 2.5+|
+   ||Deux switchs : Cisco IOS Software, vios_l2 Software (vios_l2-ADVENTERPRISEK9-M), Experimental Version 15.2(20170321:233949)|
+   ||Deux ordinateurs Centos : CentOS Linux release 7.6.1810 (Core)|
+   ||Un serveur Ubuntu 18.04.3 LTS (GNU/Linux 4.15.0-62-generic x86_64)|
+   |site contôleur|Un switch Cisco IOS Software, vios_l2 Software (vios_l2-ADVENTERPRISEK9-M), Experimental Version 15.2(20170321:233949)|
+   ||Un CentOS Linux release 7.6.1810 (Core)|
+    
+
+
 ## 2 Plan d'adressage
 Le plan d'adressage de notre topologie est accessible ici *https://github.com/reseau-2020/projet-four/blob/master/topo/plan_adressage.md*.
 
