@@ -111,7 +111,22 @@ Le HSRP permet d'obtenir une continuité de service LAN sur les routeurs et assu
 Sur DS1 HSRP est active pour VLAN10 et VLAN30.
 sur DS2 HSRP est active pour VLAN20 et VLAN40.
 L'adresse IP virtuelle associée au groupe est la passerelle du vlan. 
-HSRP est implémenté en IPv4 et IPv6.
+HSRP est implémenté en IPv4 et IPv6 (les root secondary et primary dans notre cas sont inversés sur DS1 et DS2)
+````
+DS1#show standby brief
+                     P indicates configured to preempt.
+                     |
+Interface   Grp  Pri P State   Active          Standby         Virtual IP
+Vl10        10   150 P Active  local           10.16.10.253    10.16.10.254
+Vl10        16   150   Standby FE80::D2:10     local           FE80::D10
+Vl20        20   100   Standby 10.16.20.253    local           10.16.20.254
+Vl20        26   100   Standby FE80::D2:20     local           FE80::D20
+Vl30        30   150 P Active  local           10.16.30.253    10.16.30.254
+Vl30        36   150   Standby FE80::D2:30     local           FE80::D30
+Vl40        40   100   Standby 10.16.40.253    local           10.16.40.254
+Vl40        46   100   Standby FE80::D2:40     local           FE80::D40
+````
+
 Pour la vérification de l'implémentation du protocole HSPR, on a utilisé les commandes suivantes:
 - show standby
 - show standby neighbors
@@ -217,6 +232,66 @@ Nous avons monté un tunnel entre les deux sites via une authentification `esp-d
 ## 12 Monitoring 
 ### SNMP
 Le protocole SNMP permet la supervision et le diagnositque des problèmes. Dans notre topologie nous nous avons configuré le SNMPv2c de manière à ce que la communauté private soit activée en mode Read Only (RO), nous avons activé toutes les traps snmp qui seront envoyées et stokées sur le serveur *serveur-log*.
+
+__ Exemple sur R1 __
+
+````
+R1#show snmp
+0 SNMP packets input
+    0 Bad SNMP version errors
+    0 Unknown community name
+    0 Illegal operation for community name supplied
+    0 Encoding errors
+    0 Number of requested variables
+    0 Number of altered variables
+    0 Get-request PDUs
+    0 Get-next PDUs
+    0 Set-request PDUs
+    0 Input queue packet drops (Maximum queue size 1000)
+31 SNMP packets output
+    0 Too big errors (Maximum packet size 1500)
+    0 No such name errors
+    0 Bad values errors
+    0 General errors
+    0 Response PDUs
+    31 Trap PDUs
+SNMP Dispatcher:
+   queue 0/75 (current/max), 0 dropped
+SNMP Engine:
+   queue 0/1000 (current/max), 0 dropped
+
+SNMP logging: enabled
+    Logging to 10.32.202.3.162, 0/10, 30 sent, 1 dropped.
+````
+__ SNMP traps collecté sur le serveur __
+````
+[root@pc1-r2 ~]# snmpwalk -v2c -cprivate 10.32.12.1
+SNMPv2-MIB::sysDescr.0 = STRING: Cisco IOS Software, IOSv Software (VIOS-ADVENTERPRISEK9-M), Version 15.6(2)T, RELEASE SOFTWARE (fc2)
+Technical Support: http://www.cisco.com/techsupport
+Copyright (c) 1986-2016 by Cisco Systems, Inc.
+Compiled Tue 22-Mar-16 16:19 by prod_rel_team
+SNMPv2-MIB::sysObjectID.0 = OID: SNMPv2-SMI::enterprises.9.1.1041
+DISMAN-EVENT-MIB::sysUpTimeInstance = Timeticks: (1101804) 3:03:38.04
+SNMPv2-MIB::sysContact.0 = STRING:
+SNMPv2-MIB::sysName.0 = STRING: R1.LAN.PROJECT4
+SNMPv2-MIB::sysLocation.0 = STRING:
+SNMPv2-MIB::sysServices.0 = INTEGER: 78
+SNMPv2-MIB::sysORLastChange.0 = Timeticks: (0) 0:00:00.00
+SNMPv2-MIB::sysORID.1 = OID: SNMPv2-SMI::enterprises.9.7.129
+SNMPv2-MIB::sysORID.2 = OID: SNMPv2-SMI::enterprises.9.7.115
+SNMPv2-MIB::sysORID.3 = OID: SNMPv2-SMI::enterprises.9.7.265
+SNMPv2-MIB::sysORID.4 = OID: SNMPv2-SMI::enterprises.9.7.112
+SNMPv2-MIB::sysORID.5 = OID: SNMPv2-SMI::enterprises.9.7.106
+SNMPv2-MIB::sysORID.6 = OID: SNMPv2-SMI::enterprises.9.7.47
+SNMPv2-MIB::sysORID.7 = OID: SNMPv2-SMI::enterprises.9.7.122
+SNMPv2-MIB::sysORID.8 = OID: SNMPv2-SMI::enterprises.9.7.37
+SNMPv2-MIB::sysORID.9 = OID: SNMPv2-SMI::enterprises.9.7.92
+SNMPv2-MIB::sysORID.10 = OID: SNMPv2-SMI::enterprises.9.7.53
+SNMPv2-MIB::sysORID.11 = OID: SNMPv2-SMI::enterprises.9.7.54
+SNMPv2-MIB::sysORID.12 = OID: SNMPv2-SMI::enterprises.9.7.52
+SNMPv2-MIB::sysORID.13 = OID: SNMPv2-SMI::enterprises.9.7.93
+SNMPv2-MIB::sysORID.14 = OID: SNMPv2-SMI::enterprises.9.7.186
+````
 
 ### SYSLOG
 Nous avons configuré dans un premier lieu la machine centos *server-log* comme serveur syslog. Ensuite, nous avons configuré les client syslog sur les postes de travail et sur tout les éléments CISCO. 
