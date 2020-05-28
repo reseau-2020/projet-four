@@ -1,4 +1,4 @@
-# 3 Les VLANs
+## 3 Les VLANs
 
 Pour segmenter logiquement le réseau de la couche Access nous avons créer 4 VLANs pour 4 types d'utilisateurs différents :
 
@@ -7,13 +7,13 @@ Pour segmenter logiquement le réseau de la couche Access nous avons créer 4 VL
 * VLAN 30 : CAMERA
 * VLAN 40 : EXECUTIVE
 
-La configuration des VLANs permettent de résoudre plusieurs problèmes :
+La configuration des VLANs permet de résoudre plusieurs problèmes :
 
 1. La sécurité : les VLANs permettent d'isoler les flux de données en fonction des utilisateurs (interfaces) mais aussi d'isoler certaines parties du réseau (server) sans recours à un routeur.
 2. L'optimisation : avec une segmentation logique on peut créer plusieurs réseaux sans avoir besoin d'ajouter des switchs et des câbles
-3. Qualité de service : On peut réserver de la bande passante pour certains usages (VoIP)
+3. La qualité de service : On peut réserver de la bande passante pour certains usages (VoIP)
 
-## Configuration
+### 3.1 Configuration
 
 On commence par créer et nommer les différentes VLANs sur les périphériques des couches Access et Distribution (DS1&2, AS1&2):
 
@@ -21,19 +21,20 @@ On commence par créer et nommer les différentes VLANs sur les périphériques 
     name DATA
     ...
 
-Les interfaces physiques sur lesquelles le trafics de plusieurs vlans doit passer seront monter en mode trunk en ajoutant le protocole d'encapsulation dot1q (IEEE 802.1q).
-Ce standard permet de modifier les trames Ethernet pour fournir un mécanisme d'encapsulation qui permet de faire passer le traffic de plusieurs VLANs sur un lien physique.
+Les interfaces physiques sur lesquelles le trafics de plusieurs vlans doit passer seront montées en mode trunk en ajoutant le protocole d'encapsulation dot1q (IEEE 802.1q).
+Ce standard permet de modifier les trames Ethernet pour fournir un mécanisme d'encapsulation qui permet de faire passer le traffic de plusieurs VLANs sur un seul lien physique.
 Le VLAN 99 sera le Vlan Natif, il sera utilisé pour le transport des trames ethernet non taggés sur les interfaces en mode trunk.
 
 Le trunking est activé sur les interfaces de liaison entre la couche Access et Distribution (AS --> DS) mais aussi sur les interfaces de liaisons entre DS1 et DS2 qui assurent une redondance de liens.
 
     interface range g0/0,g1/0
+     shutdown
      switchport trunk encapsulation dot1q     ! --> On active le protocole dot1q
      switchport trunk native vlan 99          ! --> On renseigne le VLAN natif
      switchport mode trunk                    ! --> On force le passage du mode DTP à "ON" pour activer le trunking
      no shutdown
 
-## Adressage des Vlans
+## 3.2 Adressage des Vlans
 
 On configure ensuite les interfaces virtuelles VLAN que l'on a créee sur différentes plages d'adresses IPv4 et IPv6.
 Dans notre topologie on a choisit de faire varier le troisième octet du bloque d'adresses IPv4 pour différentier logiquement les périphériques des différents VLANs.
@@ -58,5 +59,13 @@ __Exemple vlan10 sur DS1:__
      ...
  
  Pour la mise en place du protocole de redondance de premier lien avec HSRP on utilisera les adresses virtuelles terminant en .254 (_ex: 10.16.10.254_) on utilisera aussi ces adresses comme passerelles lors de la configuration du DHCP.
- (Voir chapitres HSRP et DHCP)
+ (Voir chapitres HSRP et DHCP).
+ 
+ ### 3.3 Diagnostique
 
+Pour diagnostiquer des erreurs sur les VLANs on peut utiliser les commandes suivantes:
+
+- `show vlan`                   --> Voir les VLANs et les interfaces physiques associés
+- `show interface trunk`        --> Voir les interfaces configurés en trunk
+- `show dtp`                    --> Voir les paramètres du Dynamique Trunk Protocol
+- `show interface switchport`   --> Voir la configuration de toutes les interfaces switchport 
