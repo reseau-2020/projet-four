@@ -279,8 +279,7 @@ Normal doors: 0
 Queued Packets: 0
 ````
 
-## 10 IPv6
-## 11 Pare-feux & VPN IPsec
+## 10 Pare-feux & VPN IPsec
 ### Pare-feux
 Nous avons mis en place deux pare-feux : un ZBF de Cisco sur *R1* dans le site principal et un pare-feu fortigate dans le site distant.
 Sur le Cisco nous avons créé trois zone :
@@ -299,7 +298,7 @@ Nouss n'avons pas créé de zones dmz sur le site distant, ce dernier nous étan
 ### VPN
 Nous avons monté un tunnel entre les deux sites via une authentification `esp-des` et un encryptage `esp-md5-hmac`. La différence des pare-feux de chaque côtés ainsi que les versions limitées offertes par *GNS3* ne nous ont pas permis d'avoir un tunnel 100% efficace. Il se monte bien dans le sens **Site Principal** => **Site Distant**, mais pas inversement.
 
-## 12 Monitoring 
+## 11 Monitoring 
 ### SNMP
 Le protocole SNMP permet la supervision et le diagnositque des problèmes. Dans notre topologie nous nous avons configuré le SNMPv2c de manière à ce que la communauté private soit activée en mode Read Only (RO), nous avons activé toutes les traps snmp qui seront envoyées et stokées sur le serveur *serveur-log*.
 
@@ -463,7 +462,7 @@ On ajoute ensuite les utilisateurs enregistrés sur les clients ainsi que leur m
 ### Switchport port Security
 Nous avons activé la fonction de sécurité des ports de communtation afin de limiter les adresses autorisées à envoyer du trafic sur des ports de commutation individuels. Ceci est activé sur ports access de AS1 et AS2. 
 
-## 17 Fiabilité de la topo 
+## 12 Fiabilité de la topo 
 ### Vérification de la connectivité en IPV4 et IPV6
 Des tests de connectivité en ipv4 et en ipv6 ont été établis en interne, vers l'internet et vers le site distant fortigate via le tunnel VPN. En outre, une connexion ssh est montée uniquement à partir de site cisco au site fortigate (via le tunnel VPN). 
  https://github.com/reseau-2020/projet-four/blob/master/topo/tests/Connectivit%C3%A9_ipv4.md
@@ -474,7 +473,7 @@ Test en IPv4: https://github.com/reseau-2020/projet-four/blob/master/topo/tests/
 
 Test en IPv6: https://github.com/reseau-2020/projet-four/blob/master/topo/tests/test%20STP%20IPv6.md
 
-## 18 Sauvegarde des configurations des périphériques
+## 13 Sauvegarde des configurations des périphériques
 Nous utilisons Ansible depuis la station de contrôle reliée à tous les périphériques afin de sauvegarder les configs.
 
 Les fichiers des périphériques présent dans le dossier `ansible-projet4/playbooks/inventories/ccna/host_vars/` ont été mis à jour avec les bonnes adresses sur les interfaces.
