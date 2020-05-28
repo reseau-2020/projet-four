@@ -263,7 +263,7 @@ SNMP Engine:
 SNMP logging: enabled
     Logging to 10.32.202.3.162, 0/10, 30 sent, 1 dropped.
 ````
-__SNMP traps collecté sur le serveur__
+__SNMP traps collectés sur le serveur__
 ````
 [root@pc1-r2 ~]# snmpwalk -v2c -cprivate 10.32.12.1
 SNMPv2-MIB::sysDescr.0 = STRING: Cisco IOS Software, IOSv Software (VIOS-ADVENTERPRISEK9-M), Version 15.6(2)T, RELEASE SOFTWARE (fc2)
