@@ -149,8 +149,21 @@ Nous avons monté un tunnel entre les deux sites via une authentification `esp-d
 Le protocole SNMP permet la supervision et le diagnositque des problèmes. Dans notre topologie nous nous avons configuré le SNMPv2c de manière à ce que la communauté private soit activée en mode Read Only (RO), nous avons activé toutes les traps snmp qui seront envoyées et stokées sur le serveur *serveur-log*.
 
 ### SYSLOG
-Nous avons configuré dans un premier lieu la machine centos *server-log* comme serveur syslog. Ensuite, nous avons configuré les client syslog sur les postes de travail et sur tout les éléments CISCO.
+Nous avons configuré dans un premier lieu la machine centos *server-log* comme serveur syslog. Ensuite, nous avons configuré les client syslog sur les postes de travail et sur tout les éléments CISCO. 
 
+Ci dessous, les loggs aperçus sur le serveur syslog suite à une shutdown sur une interface d'un des routeurs de notre topologie. 
+
+````
+2020-05-28T10:04:03.567211+02:00 _gateway 57: R2: *May 28 08:04:00: %DUAL-5-NBRCHANGE: EIGRP-IPv6 1: Neighbor FE80::1 (GigabitEthernet0/1) is down: interface down
+2020-05-28T10:04:03.568226+02:00 _gateway 58: R2: *May 28 08:04:00: %DUAL-5-NBRCHANGE: EIGRP-IPv4 1: Neighbor 10.32.12.1 (GigabitEthernet0/1) is down: interface down
+2020-05-28T10:04:05.548297+02:00 _gateway 59: R2: *May 28 08:04:02: %LINK-5-CHANGED: Interface GigabitEthernet0/1, changed state to administratively down
+2020-05-28T10:04:05.548945+02:00 _gateway 60: R2: *May 28 08:04:03: %LINEPROTO-5-UPDOWN: Line protocol on Interface GigabitEthernet0/1, changed state to down
+2020-05-28T10:04:09.751601+02:00 _gateway 61: R2: *May 28 08:04:07: %LINK-3-UPDOWN: Interface GigabitEthernet0/1, changed state to up
+2020-05-28T10:04:09.755683+02:00 _gateway 62: R2: *May 28 08:04:08: %LINEPROTO-5-UPDOWN: Line protocol on Interface GigabitEthernet0/1, changed state to up
+2020-05-28T10:04:13.454673+02:00 _gateway 63: R2: *May 28 08:04:10: %DUAL-5-NBRCHANGE: EIGRP-IPv6 1: Neighbor FE80::1 (GigabitEthernet0/1) is up: new adjacency
+2020-05-28T10:04:13.458910+02:00 _gateway 64: R2: *May 28 08:04:11: %DUAL-5-NBRCHANGE: EIGRP-IPv4 1: Neighbor 10.32.12.1 (GigabitEthernet0/1) is up: new adjacency
+
+````
 ### NTP
 Dans le but de sybchroniser l'horloge locale de notre réseau informatique, nous avons implémenté le NTP et nous avons choisi comme référence le serveur *pool.ntp.org*.
 
