@@ -10,11 +10,11 @@ categories: welcome
 Tâches réalisées aujourd’hui
 
 - backup des configs avec Ansible
-- documentation
-- powerpoint
+- Alimenter la documentation
+- Réfléchir à propos la présentation
 
 Tâches à réaliser pour 29/05/2020
 
-- powerpoint
+- Préparer la présentation
 
 ![2020-05-27](20200528_planning.png)
