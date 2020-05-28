@@ -102,6 +102,28 @@ Pour déboguer les erreurs EIGRP on peut utiliser les commandes suivantes :
 Nous avons choisi la méthode de traduction dynamique overload (PAT) avec une seule IP globale sur *R1*. 
 Après la défintion des adresses locales soumise au NAT, nous avons déployé la régle NAT sur l'interface connecté au nuage G0/1 qui est l'*outside interface*. Les autres interfaces sont définies comme *inside interface*
 
+Le *show ip statistivs* nous donne une aperçu sur les traductions nat actives et la régle nat.
+````
+R1#show ip nat statistics
+Total active translations: 24 (0 static, 24 dynamic; 24 extended)
+Peak translations: 318, occurred 00:38:17 ago
+Outside interfaces:
+  GigabitEthernet0/1
+Inside interfaces:
+  GigabitEthernet0/0, GigabitEthernet0/2, GigabitEthernet0/3
+Hits: 882  Misses: 0
+CEF Translated packets: 573, CEF Punted packets: 309
+Expired translations: 612
+Dynamic mappings:
+-- Inside Source
+[Id: 1] access-list lan interface GigabitEthernet0/1 refcount 22
+
+Total doors: 0
+Appl doors: 0
+Normal doors: 0
+Queued Packets: 0
+````
+
 ## 10 IPv6
 ## 11 Pare-feux & VPN IPsec
 ### Pare-feux
