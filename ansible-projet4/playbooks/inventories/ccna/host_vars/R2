@@ -2,7 +2,7 @@
 hostname: R2
 interfaces:
   - id: GigabitEthernet0/0
-    description: "RADIUS"
+    description: "LOG Server"
     ipv4_address: 10.32.202.2/24
     passive:
 #    rip:
