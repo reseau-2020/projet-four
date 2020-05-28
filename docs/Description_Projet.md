@@ -94,7 +94,7 @@ Le trunking est activé sur les interfaces de liaison entre la couche Access et 
      switchport mode trunk                    ! --> On force le passage du mode DTP à "ON" pour activer le trunking
      no shutdown
 
-## 3.2 Adressage des Vlans
+### 3.2 Adressage des Vlans
 
 On configure ensuite les interfaces virtuelles VLAN que l'on a créee sur différentes plages d'adresses IPv4 et IPv6.
 Dans notre topologie on a choisit de faire varier le troisième octet du bloque d'adresses IPv4 pour différentier logiquement les périphériques des différents VLANs.
