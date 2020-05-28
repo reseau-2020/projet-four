@@ -144,7 +144,7 @@ rtt min/avg/max/mdev = 1.528/1.838/2.009/0.171 ms
 
 
 
-! Exemples de test de connectivité dans le site Fortigate
+! Exemples de test de connectivité dans le site Fortigate et vers le site cisco
 
 - De centos-1 au fortios-1
 [root@pc1-fortinet ~]# ping 192.168.150.254
@@ -253,7 +253,7 @@ Please run 'execute disk scan 17'
 Note: The device will reboot and scan during startup. This may take up to an hour
 Firewall-groupe4 #  ! Accès au parefeu Fortios-1
 
-! La connexion ssh via le tunnel VPN n'est pas pu être montée de site fortigate au site cisco. 
+! La connexion ssh via le tunnel VPN n'a pas pu être montée de site fortigate au site cisco. 
 
 ````
 
