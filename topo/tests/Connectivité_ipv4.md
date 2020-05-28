@@ -1,4 +1,5 @@
-﻿! Connectivité en IPV4
+````
+! Connectivité en IPV4
 
 ! Exemples de test de connectivité dans la topologie de base (en interne et vers l'internet)
 
@@ -254,7 +255,7 @@ Firewall-groupe4 #  ! Accès au parefeu Fortios-1
 
 ! La connexion ssh via le tunnel VPN n'est pas pu être montée de site fortigate au site cisco. 
 
-
+````
 
 
 
