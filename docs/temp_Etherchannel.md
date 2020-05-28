@@ -22,11 +22,11 @@ Pour configurer un lien Etherchannel on assigne 2 interfaces au même channel-gr
 
 __Exemple configuration sur DS1__:
 
-  interface range g0/0,g1/0
-   shutdown
-   channel-group 1 mode desirable   ! --> Chaque lien etherchannel correspond a un numéro de groupe différent
-   no shutdown
-   ...
+    interface range g0/0,g1/0
+     shutdown
+     channel-group 1 mode desirable   ! --> Chaque lien etherchannel correspond a un numéro de groupe différent
+     no shutdown
+     ...
    
 Le trunking doit aussi être activé sur les liens Etherchannels.
 
