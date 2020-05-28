@@ -139,8 +139,8 @@ __Exemple vlan10 sur DS1:__
 
 Pour diagnostiquer des erreurs sur les VLANs on peut utiliser les commandes suivantes:
 
-- `show vlan`                   --> Voir les VLANs et les interfaces physiques associés
-- `show interface trunk`        --> Voir les interfaces configurés en trunk
+- `show vlan`                   --> Voir les VLANs et les interfaces physiques associées
+- `show interface trunk`        --> Voir les interfaces configurées en trunk
 - `show dtp`                    --> Voir les paramètres du Dynamique Trunk Protocol
 - `show interface switchport`   --> Voir la configuration de toutes les interfaces switchport 
 
