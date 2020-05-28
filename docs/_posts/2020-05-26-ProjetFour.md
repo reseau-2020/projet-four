@@ -18,3 +18,5 @@ Tâches à réaliser pour 27/05/2020
 - Régler les bugs
 - Etudier la fiabilité et l'aspect sécuritaire de la topo
 - Sauvgarder la config avec Ansible
+
+![2020-05-26](20200526_planning.png)
