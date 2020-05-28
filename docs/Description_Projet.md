@@ -233,7 +233,7 @@ Nous avons monté un tunnel entre les deux sites via une authentification `esp-d
 ### SNMP
 Le protocole SNMP permet la supervision et le diagnositque des problèmes. Dans notre topologie nous nous avons configuré le SNMPv2c de manière à ce que la communauté private soit activée en mode Read Only (RO), nous avons activé toutes les traps snmp qui seront envoyées et stokées sur le serveur *serveur-log*.
 
-__ Exemple sur R1 __
+__Exemple sur R1__
 
 ````
 R1#show snmp
@@ -263,7 +263,7 @@ SNMP Engine:
 SNMP logging: enabled
     Logging to 10.32.202.3.162, 0/10, 30 sent, 1 dropped.
 ````
-__ SNMP traps collecté sur le serveur __
+__SNMP traps collecté sur le serveur__
 ````
 [root@pc1-r2 ~]# snmpwalk -v2c -cprivate 10.32.12.1
 SNMPv2-MIB::sysDescr.0 = STRING: Cisco IOS Software, IOSv Software (VIOS-ADVENTERPRISEK9-M), Version 15.6(2)T, RELEASE SOFTWARE (fc2)
