@@ -238,9 +238,7 @@ Ci dessous, les loggs aperçus sur le serveur syslog suite à une shutdown sur u
 Dans le but de sybchroniser l'horloge locale de notre réseau informatique, nous avons implémenté le NTP et nous avons choisi comme référence le serveur *pool.ntp.org*.
 
 ## 15 Sécurité 
-### Radius
-
-# Gestion des accès aux routeurs via un serveur Radius
+## Gestion des accès aux routeurs via un serveur Radius
 ### Création du serveur freeRadius sur un terminal Ubuntu
 
 On a choisit de rajouter un pc ubuntu sur le switch relié a R3 pour gérer les authentification sur les périphériques de la couche core. 
@@ -329,5 +327,12 @@ Des tests de connectivité en ipv4 et en ipv6 ont été établis en interne, ver
 L'objectif de vérification du protocole Rapid Spanning-Tree est de prouver ses capacités de répartition de la charge des VLANs sur des liaisons Trunk alternatives tout en assurant sa mission de reprise suite à une rupture d'une liaison entre un commutateur de couche "Access" et un commutateur de couche "Distribution". Par exemple, dans le cadre de ce projet, grâce à Spanning-Tree, en cas de rupture de la liaison Po1 de la topologie, le trafic de VLANs 10 sera transféré via le commutateur "root secondary" alternatif qui est DS2 dans notre cas. En outre, pour vérifier la fiabilité de HSRP, on a fait tomber la passerelle DS1 lors d'un ping en continu de pc1 vers le routeur R2: aprés quelques paquets perdus le traffic est enfin repris par DS2 et R2 est de nouveau joignable (root secondary).  
 https://github.com/reseau-2020/projet-four/blob/master/topo/tests/Fiabilit%C3%A9_STP-HSRP.md
 
+## 18 Sauvegarde des configurations des périphériques
+Nous utilisons Ansible depuis la station de contrôle reliée à tous les périphériques afin de sauvegarder les configs.
 
+Les fichiers des périphériques présent dans le dossier `ansible-projet4/playbooks/inventories/ccna/host_vars/` ont été mis à jour avec les bonnes adresses sur les interfaces.
+
+De plus la connexion aux switchs *AS1* et *DS1* ne s'effectuant pas (problème de privilège), nous avons rajouté `ansible_become_pass=testtest` au fichier `ansible-projet4/playbooks/inventories/ccna_projet4/hosts`. Cependant le problème persiste sur *DS1*.
+
+Le livre de jeux `backup.yml` présent dans `ansible-projet4/playbooks/` sauvegarde les configs dans `ansible-projet4/playbooks/backup/`.
 
