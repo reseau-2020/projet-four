@@ -1,0 +1,407 @@
+Building configuration...
+
+Current configuration : 11173 bytes
+!
+! Last configuration change at 09:53:58 UTC Thu May 28 2020
+!
+version 15.2
+service timestamps debug datetime
+service timestamps log datetime
+service password-encryption
+service compress-config
+!
+hostname DS2
+!
+boot-start-marker
+boot-end-marker
+!
+!
+enable secret 5 $1$OVTL$drZGKeJJWiq2vbetzTDJ.1
+!
+username root privilege 15 password 7 03105E18121B245F5A
+no aaa new-model
+!
+!
+!
+!
+!
+!
+ip dhcp excluded-address 10.16.10.1 10.16.10.127
+ip dhcp excluded-address 10.16.20.1 10.16.20.127
+ip dhcp excluded-address 10.16.30.1 10.16.30.127
+ip dhcp excluded-address 10.16.40.1 10.16.40.127
+!
+ip dhcp pool VLAN10
+ network 10.16.10.0 255.255.255.0
+ default-router 10.16.10.253 
+ dns-server 1.1.1.1 
+!
+ip dhcp pool VLAN20
+ network 10.16.20.0 255.255.255.0
+ default-router 10.16.20.253 
+ dns-server 1.1.1.1 
+!
+ip dhcp pool VLAN30
+ network 10.16.30.0 255.255.255.0
+ default-router 10.16.30.253 
+ dns-server 1.1.1.1 
+!
+ip dhcp pool VLAN40
+ network 10.16.40.0 255.255.255.0
+ default-router 10.16.40.253 
+ dns-server 1.1.1.1 
+!
+!
+ip domain-name LAN.PROJECT4
+ip name-server 1.1.1.1
+ip cef
+ipv6 unicast-routing
+ipv6 dhcp pool DHCPv6-VLAN10
+ address prefix 2001:470:C814:4012::/64
+ dns-server 2606:4700:4700::1111
+ domain-name projet4.com
+!
+ipv6 dhcp pool DHCPv6-VLAN20
+ address prefix 2001:470:C814:4022::/64
+ dns-server 2606:4700:4700::1111
+ domain-name projet4.com
+!
+ipv6 dhcp pool DHCPv6-VLAN30
+ address prefix 2001:470:C814:4032::/64
+ dns-server 2606:4700:4700::1111
+ domain-name projet4.com
+!
+ipv6 dhcp pool DHCPv6-VLAN40
+ address prefix 2001:470:C814:4042::/64
+ dns-server 2606:4700:4700::1111
+ domain-name projet4.com
+!
+ipv6 cef
+!
+!
+!
+spanning-tree mode rapid-pvst
+spanning-tree extend system-id
+spanning-tree vlan 10,30 priority 28672
+spanning-tree vlan 20,40 priority 24576
+!
+vlan internal allocation policy ascending
+no cdp run
+!
+! 
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+interface Port-channel2
+ switchport trunk encapsulation dot1q
+ switchport trunk native vlan 99
+ switchport mode trunk
+!
+interface Port-channel3
+ switchport trunk encapsulation dot1q
+ switchport trunk native vlan 99
+ switchport mode trunk
+!
+interface Port-channel4
+ switchport trunk encapsulation dot1q
+ switchport trunk native vlan 99
+ switchport mode trunk
+!
+interface GigabitEthernet0/0
+ switchport trunk encapsulation dot1q
+ switchport trunk native vlan 99
+ switchport mode trunk
+ media-type rj45
+ negotiation auto
+ channel-group 4 mode desirable
+!
+interface GigabitEthernet0/1
+ switchport trunk encapsulation dot1q
+ switchport trunk native vlan 99
+ switchport mode trunk
+ media-type rj45
+ negotiation auto
+ channel-group 2 mode desirable
+!
+interface GigabitEthernet0/2
+ switchport trunk encapsulation dot1q
+ switchport trunk native vlan 99
+ switchport mode trunk
+ media-type rj45
+ negotiation auto
+ channel-group 3 mode desirable
+!
+interface GigabitEthernet0/3
+ media-type rj45
+ negotiation auto
+!
+interface GigabitEthernet1/0
+ switchport trunk encapsulation dot1q
+ switchport trunk native vlan 99
+ switchport mode trunk
+ media-type rj45
+ negotiation auto
+ channel-group 4 mode desirable
+!
+interface GigabitEthernet1/1
+ switchport trunk encapsulation dot1q
+ switchport trunk native vlan 99
+ switchport mode trunk
+ media-type rj45
+ negotiation auto
+ channel-group 2 mode desirable
+!
+interface GigabitEthernet1/2
+ switchport trunk encapsulation dot1q
+ switchport trunk native vlan 99
+ switchport mode trunk
+ media-type rj45
+ negotiation auto
+ channel-group 3 mode desirable
+!
+interface GigabitEthernet1/3
+ media-type rj45
+ negotiation auto
+!
+interface GigabitEthernet2/0
+ no switchport
+ ip address 10.16.135.2 255.255.255.0
+ negotiation auto
+ ipv6 address FE80::D:2 link-local
+ ipv6 eigrp 1
+!
+interface GigabitEthernet2/1
+ no switchport
+ ip address 10.16.215.2 255.255.255.0
+ negotiation auto
+ ipv6 address FE80::D:2 link-local
+ ipv6 eigrp 1
+!
+interface GigabitEthernet2/2
+ media-type rj45
+ negotiation auto
+!
+interface GigabitEthernet2/3
+ media-type rj45
+ negotiation auto
+!
+interface GigabitEthernet3/0
+ no switchport
+ ip address 10.16.235.1 255.255.255.0
+ negotiation auto
+ ipv6 address FE80::D:2 link-local
+ ipv6 eigrp 1
+!
+interface GigabitEthernet3/1
+ no switchport
+ ip address 10.16.225.1 255.255.255.0
+ negotiation auto
+ ipv6 address FE80::D:2 link-local
+ ipv6 eigrp 1
+!
+interface GigabitEthernet3/2
+ media-type rj45
+ negotiation auto
+!
+interface GigabitEthernet3/3
+ no switchport
+ ip address dhcp
+ negotiation auto
+!
+interface Vlan10
+ ip address 10.16.10.253 255.255.255.0
+ standby version 2
+ standby 10 ip 10.16.10.254
+ standby 16 ipv6 FE80::D10
+ ipv6 address FE80::D2:10 link-local
+ ipv6 address 2001:470:C814:4012::/64
+ ipv6 address FD00:1AB:10::2/64
+ ipv6 eigrp 1
+!
+interface Vlan20
+ ip address 10.16.20.253 255.255.255.0
+ standby version 2
+ standby 20 ip 10.16.20.254
+ standby 20 priority 150
+ standby 20 preempt
+ standby 26 ipv6 FE80::D20
+ standby 26 priority 150
+ standby 26 preempt
+ ipv6 address FE80::D2:20 link-local
+ ipv6 address 2001:470:C814:4022::/64
+ ipv6 address FD00:1AB:20::2/64
+ ipv6 eigrp 1
+!
+interface Vlan30
+ ip address 10.16.30.253 255.255.255.0
+ standby version 2
+ standby 30 ip 10.16.30.254
+ standby 36 ipv6 FE80::D30
+ ipv6 address FE80::D2:30 link-local
+ ipv6 address 2001:470:C814:4032::/64
+ ipv6 address FD00:1AB:30::2/64
+ ipv6 eigrp 1
+!
+interface Vlan40
+ ip address 10.16.40.253 255.255.255.0
+ standby version 2
+ standby 40 ip 10.16.40.254
+ standby 40 priority 150
+ standby 40 preempt
+ standby 46 ipv6 FE80::D40
+ standby 46 priority 150
+ standby 46 preempt
+ ipv6 address FE80::D2:40 link-local
+ ipv6 address 2001:470:C814:4042::/64
+ ipv6 address FD00:1AB:40::2/64
+ ipv6 eigrp 1
+!
+!
+router eigrp 1
+ network 10.0.0.0
+ passive-interface Vlan10
+ passive-interface Vlan20
+ passive-interface Vlan30
+ passive-interface Vlan40
+ eigrp router-id 5.5.5.5
+!
+ip default-gateway 10.16.10.254
+ip forward-protocol nd
+!
+no ip http server
+no ip http secure-server
+!
+ip ssh version 2
+ip scp server enable
+!
+!
+logging trap debugging
+logging origin-id hostname
+logging host 10.32.202.3
+ipv6 router eigrp 1
+ passive-interface Vlan10
+ passive-interface Vlan20
+ passive-interface Vlan30
+ passive-interface Vlan40
+ eigrp router-id 5.5.5.5
+!
+!
+!
+snmp-server community private RO
+snmp-server enable traps snmp authentication linkdown linkup coldstart warmstart
+snmp-server enable traps flowmon
+snmp-server enable traps tty
+snmp-server enable traps eigrp
+snmp-server enable traps casa
+snmp-server enable traps ospf state-change
+snmp-server enable traps ospf errors
+snmp-server enable traps ospf retransmit
+snmp-server enable traps ospf lsa
+snmp-server enable traps ospf cisco-specific state-change nssa-trans-change
+snmp-server enable traps ospf cisco-specific state-change shamlink interface
+snmp-server enable traps ospf cisco-specific state-change shamlink neighbor
+snmp-server enable traps ospf cisco-specific errors
+snmp-server enable traps ospf cisco-specific retransmit
+snmp-server enable traps ospf cisco-specific lsa
+snmp-server enable traps ethernet cfm cc mep-up mep-down cross-connect loop config
+snmp-server enable traps ethernet cfm crosscheck mep-missing mep-unknown service-up
+snmp-server enable traps auth-framework sec-violation
+snmp-server enable traps energywise
+snmp-server enable traps pw vc
+snmp-server enable traps l2tun session
+snmp-server enable traps l2tun pseudowire status
+snmp-server enable traps ether-oam
+snmp-server enable traps mpls rfc ldp
+snmp-server enable traps mpls ldp
+snmp-server enable traps mpls rfc traffic-eng
+snmp-server enable traps mpls traffic-eng
+snmp-server enable traps ethernet evc status create delete
+snmp-server enable traps bridge newroot topologychange
+snmp-server enable traps stpx inconsistency root-inconsistency loop-inconsistency
+snmp-server enable traps vtp
+snmp-server enable traps vlancreate
+snmp-server enable traps vlandelete
+snmp-server enable traps ike policy add
+snmp-server enable traps ike policy delete
+snmp-server enable traps ike tunnel start
+snmp-server enable traps ike tunnel stop
+snmp-server enable traps ipsec cryptomap add
+snmp-server enable traps ipsec cryptomap delete
+snmp-server enable traps ipsec cryptomap attach
+snmp-server enable traps ipsec cryptomap detach
+snmp-server enable traps ipsec tunnel start
+snmp-server enable traps ipsec tunnel stop
+snmp-server enable traps ipsec too-many-sas
+snmp-server enable traps bfd
+snmp-server enable traps bgp cbgp2
+snmp-server enable traps cef resource-failure peer-state-change peer-fib-state-change inconsistency
+snmp-server enable traps dlsw
+snmp-server enable traps frame-relay
+snmp-server enable traps frame-relay subif
+snmp-server enable traps hsrp
+snmp-server enable traps ipmulticast
+snmp-server enable traps isis
+snmp-server enable traps msdp
+snmp-server enable traps mvpn
+snmp-server enable traps pim neighbor-change rp-mapping-change invalid-pim-message
+snmp-server enable traps rsvp
+snmp-server enable traps ipsla
+snmp-server enable traps slb real virtual csrp
+snmp-server enable traps syslog
+snmp-server enable traps event-manager
+snmp-server enable traps pki
+snmp-server enable traps ethernet cfm alarm
+snmp-server enable traps mpls vpn
+snmp-server enable traps vrfmib vrf-up vrf-down vnet-trunk-up vnet-trunk-down
+snmp-server host 10.32.202.3 private 
+!
+control-plane
+!
+banner exec ^C
+**************************************************************************
+* IOSv is strictly limited to use for evaluation, demonstration and IOS  *
+* education. IOSv is provided as-is and is not supported by Cisco's      *
+* Technical Advisory Center. Any use or disclosure, in whole or in part, *
+* of the IOSv Software or Documentation to any third party for any       *
+* purposes is expressly prohibited except as otherwise authorized by     *
+* Cisco in writing.                                                      *
+**************************************************************************^C
+banner incoming ^C
+**************************************************************************
+* IOSv is strictly limited to use for evaluation, demonstration and IOS  *
+* education. IOSv is provided as-is and is not supported by Cisco's      *
+* Technical Advisory Center. Any use or disclosure, in whole or in part, *
+* of the IOSv Software or Documentation to any third party for any       *
+* purposes is expressly prohibited except as otherwise authorized by     *
+* Cisco in writing.                                                      *
+**************************************************************************^C
+banner login ^C
+**************************************************************************
+* IOSv is strictly limited to use for evaluation, demonstration and IOS  *
+* education. IOSv is provided as-is and is not supported by Cisco's      *
+* Technical Advisory Center. Any use or disclosure, in whole or in part, *
+* of the IOSv Software or Documentation to any third party for any       *
+* purposes is expressly prohibited except as otherwise authorized by     *
+* Cisco in writing.                                                      *
+**************************************************************************^C
+!
+line con 0
+ logging synchronous
+line aux 0
+line vty 0 4
+ login local
+ transport input ssh
+!
+ntp update-calendar
+ntp server 3.fr.pool.ntp.org
+!
+end
