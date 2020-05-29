@@ -32,8 +32,7 @@ From 10.16.10.130 icmp_seq=58 Destination Host Unreachable
 From 10.16.10.130 icmp_seq=59 Destination Host Unreachable
 From 10.16.10.130 icmp_seq=60 Destination Host Unreachable
 From 10.16.10.130 icmp_seq=61 Destination Host Unreachable
-From 10.16.10.253 icmp_seq=62 Redirect Host(New nexthop: 10.16.10.254) 
-! La passerelle du VLAN 10 est maintenant joignable via chemin sous-opGmal par DS2
+From 10.16.10.253 icmp_seq=62 Redirect Host(New nexthop: 10.16.10.254) ! La passerelle du VLAN 10 est maintenant joignable via chemin sous-opGmal par DS2
 From 10.16.10.253: icmp_seq=62 Redirect Host(New nexthop: 10.16.10.254)
 64 bytes from 10.16.10.254: icmp_seq=62 ttl=255 time=16.2 ms
 64 bytes from 10.16.10.254: icmp_seq=63 ttl=255 time=6.55 ms
