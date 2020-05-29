@@ -1,8 +1,31 @@
 # Documentation générale du projet 4
 
+------------------------------------------
+# Sommaire
+
+1. [Topologie](#1)
+2. [Plan d'adressage](#2)
+3. [Les VLANs](#3)
+4.
+5.
+6.
+7.
+8.
+9.
+10.
+11.
+12.
+13.
+14.
+15.
+
+
+--------------------------------------------------------
+
+
 Ce document présente globalement ce que nous avons mis en place grace au logiciel open source *GNS3*. Nous y décrirons les périphériques employés ainsi que les protocoles utilisés.
 
-## 1 Topologie
+## 1 Topologie <a id="1"></a>
 
 ![Capture GNS3](topologie.png)
 
@@ -20,7 +43,7 @@ Ci dessous un tableau avec les ressources matérielles utilisées.
     
 
 
-## 2 Plan d'adressage
+## 2 Plan d'adressage <a id="2"></a>
 Le plan d'adressage de notre topologie est accessible ici *https://github.com/reseau-2020/projet-four/blob/master/topo/plan_adressage.md*.
 
 ### IPv4
@@ -72,7 +95,7 @@ et les adresses publiques sont :
 
 Nous n'avons pas attribué d'adresses IPv6 dans le site distant par manque de temps pour tester le tunnel VPN en IPv6. *DS1* et *DS2* jouent le rôle de serveur DHCPv6.
 
-## 3 Les VLANs
+## 3 Les VLANs <a id="3"></a>
 
 Pour segmenter logiquement le réseau de la couche Access nous avons crée 4 VLANs pour 4 types d'utilisateurs différents :
 
