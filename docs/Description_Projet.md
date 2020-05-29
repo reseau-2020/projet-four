@@ -396,19 +396,19 @@ Pour être fonctionnel le tunnel doit être configuré sur les 2 sites distants,
 Côté fortigate on utilise l'interface web du pare-feu en se connectant via l'adresse IP d'une des interfaces. 
 Dans le menu `VPN --> IPsec Wizard` on peut déployer un tunnet "par défault" en suivant les 3 étapes de l'assistant:
 
-1.VPN Setup :
+1. VPN Setup :
     - Nom : 'Branch-to-HQ'
     - Template Type : Site-to-Site
     - Remote device Type : CISCO
     - NAT Configuration : No NAT between sites
     
-2.Authentification :
+2. Authentification :
     - Remote Device : IP Address
     - IP Address : 192.168.122.18
     - Outgoing interface : port3
     - Authentication : Pre-shared key (********)
     
-3.Policy&Routing:
+3. Policy&Routing:
     - Local Interface : port2
     - Local Subnet : 192.168.150.0/24
     - Remote Subnets : 10.0.0.0/8
