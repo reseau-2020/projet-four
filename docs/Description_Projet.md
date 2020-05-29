@@ -14,8 +14,8 @@
 11. [Monitoring](#11)
 12. [Sécurité](#12)
 13. [Fiabilité](#13)
-14. [Sauvegarder les configurations avec Ansible](#14)
-15. [Le Server Web sur site distant](#15)
+14. [Sauvegarde des configurations avec Ansible](#14)
+15. [Server Web sur site distant](#15)
 
 --------------------------------------------------------
 
