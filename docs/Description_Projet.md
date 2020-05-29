@@ -261,7 +261,7 @@ Il est configuré sur chaque périphérique réseaux avec la commande:
 On peut vérifier le bon fonctionnement du DHCP en scanant le trafic entre PC1 et AS1 et en envoyant un premier ping.
 On observe bien les 4 étapes (DORA) du processus d'obtention d'une adresse en DHCP:
 
-![DHCP DORA](docs/DHCP DORA.PNG)
+![DHCP DORA](DHCP DORA.PNG)
 
 Une verification pour le déploiement du *DNS* est d'essayer de joindre www.test.tf à partir d'un poste de travail 
 ````
