@@ -472,7 +472,7 @@ On ajoute les différents clients pour lesquels on utilisera l'authentification 
     shortname = R3
     }
 
-On ajoute ensuite les utilisateurs enregistrés sur les clients ainsi que leur mot de passe dans un deuxième fichier. On fixe le niveau de privilège (15=max). On a choisit d'ajouter un admin (lvl 15) et un utilisateur de base (lvl 1).
+On ajoute ensuite les utilisateurs enregistrés sur les clients ainsi que leur mot de passe dans un deuxième fichier. On fixe le niveau de privilège (15=max). On a choisit d'ajouter un admin (lvl 15) et un utilisateur de base (lvl 5).
 
     vi users
     root Cleartext-Password := "testtest"
@@ -481,7 +481,7 @@ On ajoute ensuite les utilisateurs enregistrés sur les clients ainsi que leur m
      
     user Cleartext-Password := "123"
      Service-Type = NAS-Prompt-User,
-     Cisco-AVPair = "shell:priv-lvl=1"
+     Cisco-AVPair = "shell:priv-lvl=5"
      
 **Important**, on doit redémarrer le service Freeradius pour prendre en compte les changements.
 
