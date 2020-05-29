@@ -31,10 +31,10 @@ Pour le site distant nous avons utilisé des adresses privées en `192.168.150.X
 ### Ipv6
 Concernant l'adressage IPv6 (/64 par défaut), les adresses link-local sont :
 - sur R1 : `fe80::1` (`fe80::cafe:4` sur g0/1 qui connecte l'internet)
-- sur R1 : `fe80::2`
-- sur R1 : `fe80::3`
-- sur R1 : `fe80::d:1`
-- sur R1 : `fe80::d:2`
+- sur R2 : `fe80::2`
+- sur R3 : `fe80::3`
+- sur DS1 : `fe80::d:1`
+- sur DS2 : `fe80::d:2`
 - sur DS1 VLAN 10 : `fe80::d1:10`
 - sur DS1 VLAN 20 : `fe80::d1:20`
 - sur DS1 VLAN 30 : `fe80::d1:30`
