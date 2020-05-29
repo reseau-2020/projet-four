@@ -6,19 +6,18 @@
 1. [Topologie](#1)
 2. [Plan d'adressage](#2)
 3. [Les VLANs](#3)
-4.
-5.
-6.
-7.
-8.
-9.
-10.
-11.
-12.
-13.
-14.
-15.
-
+4. [Spanning Tree](#4)
+5. [Etherchannel](#5)
+6. [HSRP](#6)
+7. [DHCP & DNS](#7)
+8. [Protocole de routage : EIGRP](#8)
+9. [Le NAT](#9)
+10. [Pare-feux & VPN IPsec](#10)
+11. [Monitoring](#11)
+12. [Sécurité](#12)
+13. [Fiabilité](#13)
+14. [Sauvegarder les configurations avec Ansible](#14)
+15. [Le Server Web sur site distant](#15)
 
 --------------------------------------------------------
 
@@ -167,13 +166,13 @@ Pour diagnostiquer des erreurs sur les VLANs on peut utiliser les commandes suiv
 - `show dtp`                    --> Voir les paramètres du Dynamique Trunk Protocol
 - `show interface switchport`   --> Voir la configuration de toutes les interfaces switchport 
 
-## 4 Spanning-tree
+## 4 Spanning-tree <a id="4"></a>
 Le protocol *Spanning-tree* est implémenté sur les 4 périphériques de couche 2 : *AS1*, *AS2*, *DS1* & *DS2*. *DS1* est `root primary` pour les vlans 10, 30 et 99 (natif) et `secondary` pour les vlans 20 et 40. Respectivement, *DS2* est `root primary` pour les vlans 20 et 40 et `secondary` pour les vlans 10, 30 et 99. Pour vérifier l'implémentation du SPT, on a éxécuté les commandes suivantes:
 - show spanning-tree summary
 - show spanning-tree
 - show spanning-tree vlan X 
 
-## 5 Etherchannel
+## 5 Etherchannel <a id="5"></a>
 
 Pour la communication entre la couche Access et la couche Distribution appelé "switch block" nous avons utilisé la technologie Etherchannel (ou Portchannel) propriétaire cisco 
 qui existe aussi en version ouverte avec le standard IEEE 802.3ad
@@ -213,7 +212,7 @@ Les commandes suivantes permettent de diagnostiquer des erreurs sur Etherchannel
 - `show etherchannel [summary | port | load-balance | port-channel | detail]`  --> Voir le détailde la configuration Etherchannel
 - `show [pagp | lacp ] neighbors`                                              --> En config dynamique voir le voisinage Etherchannel
 
-## 6 HSRP
+## 6 HSRP <a id="6"></a>
 Le HSRP permet d'obtenir une continuité de service LAN sur les routeurs et assurer une diponibilité de passerelle d'un réseau en cas de problème. 
 Sur DS1 HSRP est active pour VLAN10 et VLAN30.
 sur DS2 HSRP est active pour VLAN20 et VLAN40.
@@ -239,7 +238,7 @@ Pour la vérification de l'implémentation du protocole HSPR, on a utilisé les 
 - show standby neighbors
 - show standby brief
 
-## 7 DHCP & DNS
+## 7 DHCP & DNS <a id="7"></a>
 
 ### 7.1 Configuration du DHCP
 
@@ -310,13 +309,13 @@ PING test.tf(2001:41d0:305:1000::1d8a (2001:41d0:305:1000::1d8a)) 56 data bytes
 rtt min/avg/max/mdev = 14.380/15.698/18.810/1.815 ms
 ````
 
-## 8 Protocole de routage EIGRP
+## 8 Protocole de routage EIGRP <a id="8"></a>
 
 Pour le routage entre la couche Distribution et la couche Core nous avons choisi d'utiliser le protocole de routage dynamique EIGRP notamment pour sa facilité de déploiement (vs OSPF) en IPv6.
 EIGRP était un IGP propriétaire CISCO mais depuis 2013 il est devenu un standard de l'IETF partiellement ouvert.
 Il utilise un protocole à vecteur de distances IP avec une distance administrative en interne de 90.
 
-### 1. Configuration
+### 8.1 Configuration
 
 Le routage EIGRP est activé sur les périphériques de couche 3 (R1, R2, R3, DS1 et DS2) sur le système autonome AS 1.
 Un router-ID est associé à chaque routeur (1.1.1.1, 2.2.2.2,...) pour les différencier. Les interfaces qui ne participent pas au routage dynamique en local (interfaces VLAN ou vers internet) seront ajoutés
@@ -334,7 +333,7 @@ __Exemple sur R2:__
      network 10.32.12.0
      ...
      
-### 2. Vérification
+### 8.2 Vérification
 
 Pour déboguer les erreurs EIGRP on peut utiliser les commandes suivantes :
 
@@ -343,7 +342,7 @@ Pour déboguer les erreurs EIGRP on peut utiliser les commandes suivantes :
 * `show ip eigrp topology`     --> Voir la topology du réseau avec interfaces et adresses IP des autres routeurs
 * `show ip route`              --> Voir toute la table de routage, les routes dynamique EIGRP sont symbolisés par la lettre D
 
-## 9 NAT
+## 9 NAT <a id="9"></a>
 Nous avons choisi la méthode de traduction dynamique overload (PAT) avec une seule IP globale sur *R1*. 
 Après la défintion des adresses locales soumise au NAT, nous avons déployé la régle NAT sur l'interface connecté au nuage G0/1 qui est l'*outside interface*. Les autres interfaces sont définies comme *inside interface*
 
@@ -369,7 +368,7 @@ Normal doors: 0
 Queued Packets: 0
 ````
 
-## 10 Pare-feux & VPN IPsec
+## 10 Pare-feux & VPN IPsec <a id="10"></a>
 ### Pare-feux
 Nous avons mis en place deux pare-feux : un ZBF de Cisco sur *R1* dans le site principal et un pare-feu fortigate dans le site distant.
 Sur le Cisco nous avons créé trois zone :
@@ -388,7 +387,7 @@ Nouss n'avons pas créé de zones dmz sur le site distant, ce dernier nous étan
 ### VPN
 Nous avons monté un tunnel entre les deux sites via une authentification `esp-des` et un encryptage `esp-md5-hmac`. La différence des pare-feux de chaque côtés ainsi que les versions limitées offertes par *GNS3* ne nous ont pas permis d'avoir un tunnel 100% efficace. Il se monte bien dans le sens **Site Principal** => **Site Distant**, mais pas inversement.
 
-## 11 Monitoring 
+## 11 Monitoring <a id="11"></a>
 ### SNMP
 Le protocole SNMP permet la supervision et le diagnositque des problèmes. Dans notre topologie nous nous avons configuré le SNMPv2c de manière à ce que la communauté private soit activée en mode Read Only (RO), nous avons activé toutes les traps snmp qui seront envoyées et stokées sur le serveur *serveur-log*.
 
@@ -471,7 +470,7 @@ Ci dessous, les loggs aperçus sur le serveur syslog suite à une shutdown sur u
 ### NTP
 Dans le but de sybchroniser l'horloge locale de notre réseau informatique, nous avons implémenté le NTP et nous avons choisi comme référence le serveur *3.fr.pool.ntp.org*.
 
-## 12 Sécurité 
+## 12 Sécurité <a id="12"></a>
 ## Gestion des accès aux routeurs via un serveur Radius
 ### Création du serveur freeRadius sur un terminal Ubuntu
 
@@ -552,7 +551,7 @@ On ajoute ensuite les utilisateurs enregistrés sur les clients ainsi que leur m
 ### Switchport port Security
 Nous avons activé la fonction de sécurité des ports de communtation afin de limiter les adresses autorisées à envoyer du trafic sur des ports de commutation individuels. Ceci est activé sur ports access de AS1 et AS2. 
 
-## 12 Fiabilité de la topo 
+## 13 Fiabilité de la topo <a id="13"></a>
 ### Vérification de la connectivité en IPV4 et IPV6
 Des tests de connectivité en ipv4 et en ipv6 ont été établis en interne, vers l'internet et vers le site distant fortigate via le tunnel VPN. En outre, une connexion ssh est montée uniquement à partir de site cisco au site fortigate (via le tunnel VPN). 
  https://github.com/reseau-2020/projet-four/blob/master/topo/tests/Connectivit%C3%A9_ipv4.md
@@ -563,7 +562,7 @@ Test en IPv4: https://github.com/reseau-2020/projet-four/blob/master/topo/tests/
 
 Test en IPv6: https://github.com/reseau-2020/projet-four/blob/master/topo/tests/test%20STP%20IPv6.md
 
-## 13 Sauvegarde des configurations des périphériques
+## 14 Sauvegarde des configurations des périphériques <a id="14"></a>
 Nous utilisons Ansible depuis la station de contrôle reliée à tous les périphériques afin de sauvegarder les configs.
 
 Les fichiers des périphériques présent dans le dossier `ansible-projet4/playbooks/inventories/ccna/host_vars/` ont été mis à jour avec les bonnes adresses sur les interfaces.
@@ -573,9 +572,9 @@ De plus la connexion aux switchs *AS1* et *DS1* ne s'effectuant pas (problème d
 Le livre de jeux `backup.yml` présent dans `ansible-projet4/playbooks/` sauvegarde les configs dans `ansible-projet4/playbooks/backup/`.
 
 
-## 14 Configuration d'un serveur web apache2 sur le server de la DMZ du réseau Remote (Fortigate)
+## 15 Serveur web <a id="15"></a>
 
-### 14.1 Serveur web sur une station Ubuntu
+### 15.1 Serveur web sur une station Ubuntu
 
 Sur le serveur web nous devons d'abord paramétrer une adresse IP fixe cohérente avec le bloque IPv4 choisit pour le réseau de la DMZ : 192.168.10.0/24. Sur Ubuntu nous faisons les modifications d'adressage avec "Netplan": 
 
@@ -605,7 +604,7 @@ Nous devons ensuite installer un serveur HTTP sur la machine. Nous utiliserons a
     # vérifier que le service apache2 est bien sur écoute du port 80
     netstat -antp | grep apache2
 
-### 14.2 Configuration Virtual IP sur Fortigate pour rediriger traffic HTTP et HTTPS
+### 15.2 Configuration Virtual IP sur Fortigate pour rediriger traffic HTTP et HTTPS
 
 Pour accéder aux pages web présente sur le serveur de la DMZ depuis l'extérieur (WAN) le traffic HTTP arrivant sur le port 3 (192.168.122.29) du parfeu Fortigate (qui fait aussi office de routeur ici) devra être redirigé vers l'adresse 192.168.10.1 sur le port 80.
 
