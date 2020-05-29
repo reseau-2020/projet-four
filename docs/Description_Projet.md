@@ -218,9 +218,7 @@ Pour la vérification de l'implémentation du protocole HSPR, on a utilisé les 
 
 ## 7 DHCP & DNS
 
-## DHCP & DNS
-
-## Configuration du DHCP
+### 7.1 Configuration du DHCP
 
 Les adresses IPv4 et IPv6 des terminaux de la couche Access sont distribués automatiquement par DHCP.
 DS1 et DS2 font office de server DHCP sur notre topologie. 
@@ -244,14 +242,21 @@ __Exclusion de plages d'adresses sur VLAN 20 de DS1:__
 
 `ip dhcp excluded-address 10.16.20.128 10.16.20.255`
 
-### Configuration du DNS
+Quatres autres pools DHCP sont configurés sur DS1 et DS2 pour servir les adresses IPv6 publiques en utilisant un prefixe. Le serveur DNS IPv6 est aussi poussé par le server.
+
+    ipv6 dhcp pool DHCPv6-VLAN30
+     address prefix 2001:470:C814:4032::/64
+     dns-server 2606:4700:4700::1111
+     domain-name projet4.com
+     
+### 7.3 Configuration du DNS
 
 Comme server DNS nous utilisons le server publique `1.1.1.1` car il est réputé plus confidentiel pour les données. 
 Il est configuré sur chaque périphérique réseaux avec la commande:
 
      ip name-server 1.1.1.1
 
-### Vérification
+### 7.4 Vérifications
 
 Une verification pour le déploiement du *DNS* est d'essayer de joindre www.test.tf à partir d'un poste de travail 
 ````
@@ -259,10 +264,7 @@ Une verification pour le déploiement du *DNS* est d'essayer de joindre www.test
 PING test.tf (51.68.114.75) 56(84) bytes of data.
 64 bytes from ip-51-68-114.eu (51.68.114.75): icmp_seq=1 ttl=48 time=12.6 ms
 64 bytes from ip-51-68-114.eu (51.68.114.75): icmp_seq=2 ttl=48 time=12.4 ms
-64 bytes from ip-51-68-114.eu (51.68.114.75): icmp_seq=3 ttl=48 time=12.9 ms
-64 bytes from ip-51-68-114.eu (51.68.114.75): icmp_seq=4 ttl=48 time=12.1 ms
-64 bytes from ip-51-68-114.eu (51.68.114.75): icmp_seq=5 ttl=48 time=12.8 ms
-
+...
 --- test.tf ping statistics ---
 5 packets transmitted, 5 received, 0% packet loss, time 6231ms
 rtt min/avg/max/mdev = 12.166/12.619/12.997/0.320 ms
@@ -274,9 +276,7 @@ et en IPv6
 PING test.tf(2001:41d0:305:1000::1d8a (2001:41d0:305:1000::1d8a)) 56 data bytes
 64 bytes from 2001:41d0:305:1000::1d8a (2001:41d0:305:1000::1d8a): icmp_seq=1 ttl=49 time=18.8 ms
 64 bytes from 2001:41d0:305:1000::1d8a (2001:41d0:305:1000::1d8a): icmp_seq=2 ttl=49 time=14.6 ms
-64 bytes from 2001:41d0:305:1000::1d8a (2001:41d0:305:1000::1d8a): icmp_seq=3 ttl=49 time=14.3 ms
-64 bytes from 2001:41d0:305:1000::1d8a (2001:41d0:305:1000::1d8a): icmp_seq=4 ttl=49 time=14.9 ms
-
+...
 --- test.tf ping statistics ---
 4 packets transmitted, 4 received, 0% packet loss, time 3004ms
 rtt min/avg/max/mdev = 14.380/15.698/18.810/1.815 ms
