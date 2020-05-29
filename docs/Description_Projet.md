@@ -22,11 +22,11 @@
 
 Ce document présente globalement ce que nous avons mis en place grace au logiciel open source *GNS3*. Nous y décrirons les périphériques employés ainsi que les protocoles utilisés.
 
-## 1 Topologie <a id="1"></a>
+# 1 Topologie <a id="1"></a>
 
 ![Capture GNS3](topologie.png)
 
-### Inventaire ressources requises
+## Inventaire ressources requises
 
 Ci dessous un tableau avec les ressources matérielles utilisées. 
 
@@ -40,15 +40,15 @@ Ci dessous un tableau avec les ressources matérielles utilisées.
     
 
 
-## 2 Plan d'adressage <a id="2"></a>
+# 2 Plan d'adressage <a id="2"></a>
 Le plan d'adressage de notre topologie est accessible ici *https://github.com/reseau-2020/projet-four/blob/master/topo/plan_adressage.md*.
 
-### IPv4
+## IPv4
 En IPv4, nous avons utilisé des adresses en `10.32.X.X` pour les liaisons interne à la couche *CORE* et en `10.16.X.X` pour les liaisons entre les liaisons impliquant les couches *DISTRIBUTION* et *ACCESS*. Chaque sous-réseau possède un masque égal à 255.255.255.0. Le troisième octet des adresses renseigne sur la liaison entre les périphériques concernés. Par exemple, les routeurs *R1* et *R2* sont reliés en `10.32.12.1` (sur R1) et `10.32.12.2` (sur R2). On assigne 4 à *DS1* et 5 à *DS2*, ainsi *R3* et *DS2* sont reliés par `10.16.135.1` et `10.16.235.2` (sur *R3*), `10.16.135.2` et `10.16.235.1` (sur *DS2*).
 Les *VLANs 10, 20, 30 et 40* prennent les adresses `10.16.10.X`, `10.16.20.X`, `10.16.30.X` et `10.16.40.X`.
 Pour le site distant nous avons utilisé des adresses privées en `192.168.150.X`.
 
-### Ipv6
+## Ipv6
 Concernant l'adressage IPv6 (/64 par défaut), les adresses link-local sont :
 - sur R1 : `fe80::1` (`fe80::cafe:4` sur g0/1 qui connecte l'internet)
 - sur R2 : `fe80::2`
@@ -92,7 +92,7 @@ et les adresses publiques sont :
 
 Nous n'avons pas attribué d'adresses IPv6 dans le site distant par manque de temps pour tester le tunnel VPN en IPv6. *DS1* et *DS2* jouent le rôle de serveur DHCPv6.
 
-## 3 Les VLANs <a id="3"></a>
+# 3 Les VLANs <a id="3"></a>
 
 Pour segmenter logiquement le réseau de la couche Access nous avons crée 4 VLANs pour 4 types d'utilisateurs différents :
 
@@ -107,7 +107,7 @@ La configuration des VLANs permet de résoudre plusieurs problèmes :
 2. L'optimisation : avec une segmentation logique on peut créer plusieurs réseaux sans avoir besoin d'ajouter des switchs et des câbles
 3. La qualité de service : On peut réserver de la bande passante pour certains usages (VoIP)
 
-### 3.1 Configuration
+## 3.1 Configuration
 
 On commence par créer et nommer les différents VLANs sur les périphériques des couches Access et Distribution (DS1&2, AS1&2):
 
@@ -128,7 +128,7 @@ Le trunking est activé sur les interfaces de liaison entre la couche Access et 
      switchport mode trunk                    ! --> On force le passage du mode DTP à "ON" pour activer le trunking
      no shutdown
 
-### 3.2 Adressage des Vlans
+## 3.2 Adressage des Vlans
 
 On configure ensuite les interfaces virtuelles VLAN que l'on a créee sur différentes plages d'adresses IPv4 et IPv6.
 Dans notre topologie on a choisit de faire varier le troisième octet du bloque d'adresses IPv4 pour différentier logiquement les périphériques des différents VLANs.
@@ -155,7 +155,7 @@ __Exemple vlan10 sur DS1:__
  Pour la mise en place du protocole de redondance de premier lien avec HSRP on utilisera les adresses virtuelles terminant en .254 (_ex: 10.16.10.254_) on utilisera aussi ces adresses comme passerelles lors de la configuration du DHCPv4.
  (Voir chapitres HSRP et DHCP).
  
- ### 3.3 Diagnostique
+ ## 3.3 Diagnostique
 
 Pour diagnostiquer des erreurs sur les VLANs on peut utiliser les commandes suivantes:
 
@@ -164,20 +164,20 @@ Pour diagnostiquer des erreurs sur les VLANs on peut utiliser les commandes suiv
 - `show dtp`                    --> Voir les paramètres du Dynamique Trunk Protocol
 - `show interface switchport`   --> Voir la configuration de toutes les interfaces switchport 
 
-## 4 Spanning-tree <a id="4"></a>
+# 4 Spanning-tree <a id="4"></a>
 Le protocol *Spanning-tree* est implémenté sur les 4 périphériques de couche 2 : *AS1*, *AS2*, *DS1* & *DS2*. *DS1* est `root primary` pour les vlans 10, 30 et 99 (natif) et `secondary` pour les vlans 20 et 40. Respectivement, *DS2* est `root primary` pour les vlans 20 et 40 et `secondary` pour les vlans 10, 30 et 99. Pour vérifier l'implémentation du SPT, on a éxécuté les commandes suivantes:
 - show spanning-tree summary
 - show spanning-tree
 - show spanning-tree vlan X 
 
-## 5 Etherchannel <a id="5"></a>
+# 5 Etherchannel <a id="5"></a>
 
 Pour la communication entre la couche Access et la couche Distribution appelé "switch block" nous avons utilisé la technologie Etherchannel (ou Portchannel) propriétaire cisco 
 qui existe aussi en version ouverte avec le standard IEEE 802.3ad
 Etherchannel permet d'assembler plusieurs liens physiques en un seul lien logique (agrégation de liens) dans le but d'augmenter la vitesse mais aussi la tolérance aux pannes.
 Cela permettra d'augmenter la bande passante dans le "switch block".
 
-### 5.1 Configuration
+## 5.1 Configuration
 
 Dans notre topologie nous avons configuré 5 ports Etherchannel :
 
@@ -202,7 +202,7 @@ __Exemple configuration sur DS1:__
    
 Le trunking doit aussi être activé sur les liens Etherchannels.
 
-### 5.2 Diagnostiques
+## 5.2 Diagnostiques
 
 Les commandes suivantes permettent de diagnostiquer des erreurs sur Etherchannel:
 
@@ -210,7 +210,7 @@ Les commandes suivantes permettent de diagnostiquer des erreurs sur Etherchannel
 - `show etherchannel [summary | port | load-balance | port-channel | detail]`  --> Voir le détailde la configuration Etherchannel
 - `show [pagp | lacp ] neighbors`                                              --> En config dynamique voir le voisinage Etherchannel
 
-## 6 HSRP <a id="6"></a>
+# 6 HSRP <a id="6"></a>
 Le HSRP permet d'obtenir une continuité de service LAN sur les routeurs et assurer une diponibilité de passerelle d'un réseau en cas de problème. 
 Sur DS1 HSRP est active pour VLAN10 et VLAN30.
 sur DS2 HSRP est active pour VLAN20 et VLAN40.
@@ -236,9 +236,9 @@ Pour la vérification de l'implémentation du protocole HSPR, on a utilisé les 
 - show standby neighbors
 - show standby brief
 
-## 7 DHCP & DNS <a id="7"></a>
+# 7 DHCP & DNS <a id="7"></a>
 
-### 7.1 Configuration du DHCP
+## 7.1 Configuration du DHCP
 
 Les adresses IPv4 et IPv6 des terminaux de la couche Access sont distribués automatiquement par DHCP.
 DS1 et DS2 font office de server DHCP sur notre topologie. 
@@ -269,14 +269,14 @@ Quatres autres pools DHCP sont configurés sur DS1 et DS2 pour servir les adress
      dns-server 2606:4700:4700::1111
      domain-name projet4.com
      
-### 7.3 Configuration du DNS
+## 7.3 Configuration du DNS
 
 Comme server DNS nous utilisons le server publique `1.1.1.1` car il est réputé plus confidentiel pour les données. 
 Il est configuré sur chaque périphérique réseaux avec la commande:
 
      ip name-server 1.1.1.1
 
-### 7.4 Vérifications
+## 7.4 Vérifications
 
 On peut vérifier le bon fonctionnement du DHCP en scanant le trafic entre PC1 et AS1 et en envoyant un premier ping.
 On observe bien les 4 étapes (DORA) du processus d'obtention d'une adresse en DHCP:
@@ -307,13 +307,13 @@ PING test.tf(2001:41d0:305:1000::1d8a (2001:41d0:305:1000::1d8a)) 56 data bytes
 rtt min/avg/max/mdev = 14.380/15.698/18.810/1.815 ms
 ````
 
-## 8 Protocole de routage EIGRP <a id="8"></a>
+# 8 Protocole de routage EIGRP <a id="8"></a>
 
 Pour le routage entre la couche Distribution et la couche Core nous avons choisi d'utiliser le protocole de routage dynamique EIGRP notamment pour sa facilité de déploiement (vs OSPF) en IPv6.
 EIGRP était un IGP propriétaire CISCO mais depuis 2013 il est devenu un standard de l'IETF partiellement ouvert.
 Il utilise un protocole à vecteur de distances IP avec une distance administrative en interne de 90.
 
-### 8.1 Configuration
+## 8.1 Configuration
 
 Le routage EIGRP est activé sur les périphériques de couche 3 (R1, R2, R3, DS1 et DS2) sur le système autonome AS 1.
 Un router-ID est associé à chaque routeur (1.1.1.1, 2.2.2.2,...) pour les différencier. Les interfaces qui ne participent pas au routage dynamique en local (interfaces VLAN ou vers internet) seront ajoutés
@@ -331,7 +331,7 @@ __Exemple sur R2:__
      network 10.32.12.0
      ...
      
-### 8.2 Vérification
+## 8.2 Vérification
 
 Pour déboguer les erreurs EIGRP on peut utiliser les commandes suivantes :
 
@@ -340,7 +340,7 @@ Pour déboguer les erreurs EIGRP on peut utiliser les commandes suivantes :
 * `show ip eigrp topology`     --> Voir la topology du réseau avec interfaces et adresses IP des autres routeurs
 * `show ip route`              --> Voir toute la table de routage, les routes dynamique EIGRP sont symbolisés par la lettre D
 
-## 9 NAT <a id="9"></a>
+# 9 NAT <a id="9"></a>
 Nous avons choisi la méthode de traduction dynamique overload (PAT) avec une seule IP globale sur *R1*. 
 Après la défintion des adresses locales soumise au NAT, nous avons déployé la régle NAT sur l'interface connecté au nuage G0/1 qui est l'*outside interface*. Les autres interfaces sont définies comme *inside interface*
 
@@ -366,8 +366,8 @@ Normal doors: 0
 Queued Packets: 0
 ````
 
-## 10 Pare-feux & VPN IPsec <a id="10"></a>
-### Pare-feux
+# 10 Pare-feux & VPN IPsec <a id="10"></a>
+## Pare-feux
 Nous avons mis en place deux pare-feux : un ZBF de Cisco sur *R1* dans le site principal et un pare-feu fortigate dans le site distant.
 Sur le Cisco nous avons créé trois zone :
 - Internet : `zone security lan`
@@ -382,11 +382,11 @@ Succinctement, les protocoles autorisés entre zones sont :
 
 Nouss n'avons pas créé de zones dmz sur le site distant, ce dernier nous étant utile seulement pour construire un tunnel VPN.
  
-### VPN
+## VPN
 Nous avons monté un tunnel entre les deux sites via une authentification `esp-des` et un encryptage `esp-md5-hmac`. La différence des pare-feux de chaque côtés ainsi que les versions limitées offertes par *GNS3* ne nous ont pas permis d'avoir un tunnel 100% efficace. Il se monte bien dans le sens **Site Principal** => **Site Distant**, mais pas inversement.
 
-## 11 Monitoring <a id="11"></a>
-### SNMP
+# 11 Monitoring <a id="11"></a>
+## SNMP
 Le protocole SNMP permet la supervision et le diagnositque des problèmes. Dans notre topologie nous nous avons configuré le SNMPv2c de manière à ce que la communauté private soit activée en mode Read Only (RO), nous avons activé toutes les traps snmp qui seront envoyées et stokées sur le serveur *serveur-log*.
 
 __Exemple sur R1__
@@ -449,7 +449,7 @@ SNMPv2-MIB::sysORID.13 = OID: SNMPv2-SMI::enterprises.9.7.93
 SNMPv2-MIB::sysORID.14 = OID: SNMPv2-SMI::enterprises.9.7.186
 ````
 
-### SYSLOG
+## SYSLOG
 Nous avons configuré dans un premier lieu la machine centos *server-log* comme serveur syslog. Ensuite, nous avons configuré les client syslog sur les postes de travail et sur tout les éléments CISCO. 
 
 Ci dessous, les loggs aperçus sur le serveur syslog suite à une shutdown sur une interface d'un des routeurs de notre topologie. 
@@ -465,10 +465,10 @@ Ci dessous, les loggs aperçus sur le serveur syslog suite à une shutdown sur u
 2020-05-28T10:04:13.458910+02:00 _gateway 64: R2: *May 28 08:04:11: %DUAL-5-NBRCHANGE: EIGRP-IPv4 1: Neighbor 10.32.12.1 (GigabitEthernet0/1) is up: new adjacency
 
 ````
-### NTP
+## NTP
 Dans le but de sybchroniser l'horloge locale de notre réseau informatique, nous avons implémenté le NTP et nous avons choisi comme référence le serveur *3.fr.pool.ntp.org*.
 
-## 12 Sécurité <a id="12"></a>
+# 12 Sécurité <a id="12"></a>
 ## Gestion des accès aux routeurs via un serveur Radius
 ### Création du serveur freeRadius sur un terminal Ubuntu
 
@@ -546,21 +546,21 @@ On ajoute ensuite les utilisateurs enregistrés sur les clients ainsi que leur m
     aaa session-id common
     snmp-server enable traps aaa_server
 
-### Switchport port Security
+## Switchport port Security
 Nous avons activé la fonction de sécurité des ports de communtation afin de limiter les adresses autorisées à envoyer du trafic sur des ports de commutation individuels. Ceci est activé sur ports access de AS1 et AS2. 
 
-## 13 Fiabilité de la topo <a id="13"></a>
-### Vérification de la connectivité en IPV4 et IPV6
+# 13 Fiabilité de la topo <a id="13"></a>
+## Vérification de la connectivité en IPV4 et IPV6
 Des tests de connectivité en ipv4 et en ipv6 ont été établis en interne, vers l'internet et vers le site distant fortigate via le tunnel VPN. En outre, une connexion ssh est montée uniquement à partir de site cisco au site fortigate (via le tunnel VPN). 
  https://github.com/reseau-2020/projet-four/blob/master/topo/tests/Connectivit%C3%A9_ipv4.md
  https://github.com/reseau-2020/projet-four/blob/master/topo/tests/connectivite_ipv6.md
-### Vérification de la redondance STP et de la technologie HSRP
+## Vérification de la redondance STP et de la technologie HSRP
 L'objectif de vérification du protocole Rapid Spanning-Tree est de prouver ses capacités de répartition de la charge des VLANs sur des liaisons Trunk alternatives tout en assurant sa mission de reprise suite à une rupture d'une liaison entre un commutateur de couche "Access" et un commutateur de couche "Distribution". Par exemple, dans le cadre de ce projet, grâce à Spanning-Tree, en cas de rupture de la liaison Po1 de la topologie, le trafic de VLANs 10 sera transféré via le commutateur "root secondary" alternatif qui est DS2 dans notre cas. En outre, pour vérifier la fiabilité de HSRP, on a fait tomber la passerelle DS1 lors d'un ping en continu de pc1 vers le routeur R2: aprés quelques paquets perdus le traffic est enfin repris par DS2 et R2 est de nouveau joignable (root secondary).  
 Test en IPv4: https://github.com/reseau-2020/projet-four/blob/master/topo/tests/Fiabilit%C3%A9_STP-HSRP_IPV4.md
 
 Test en IPv6: https://github.com/reseau-2020/projet-four/blob/master/topo/tests/test%20STP%20IPv6.md
 
-## 14 Sauvegarde des configurations des périphériques <a id="14"></a>
+# 14 Sauvegarde des configurations des périphériques <a id="14"></a>
 Nous utilisons Ansible depuis la station de contrôle reliée à tous les périphériques afin de sauvegarder les configs.
 
 Les fichiers des périphériques présent dans le dossier `ansible-projet4/playbooks/inventories/ccna/host_vars/` ont été mis à jour avec les bonnes adresses sur les interfaces.
@@ -570,9 +570,9 @@ De plus la connexion aux switchs *AS1* et *DS1* ne s'effectuant pas (problème d
 Le livre de jeux `backup.yml` présent dans `ansible-projet4/playbooks/` sauvegarde les configs dans `ansible-projet4/playbooks/backup/`.
 
 
-## 15 Serveur web <a id="15"></a>
+# 15 Serveur web <a id="15"></a>
 
-### 15.1 Serveur web sur une station Ubuntu
+## 15.1 Serveur web sur une station Ubuntu
 
 Sur le serveur web nous devons d'abord paramétrer une adresse IP fixe cohérente avec le bloque IPv4 choisit pour le réseau de la DMZ : 192.168.10.0/24. Sur Ubuntu nous faisons les modifications d'adressage avec "Netplan": 
 
@@ -602,7 +602,7 @@ Nous devons ensuite installer un serveur HTTP sur la machine. Nous utiliserons a
     # vérifier que le service apache2 est bien sur écoute du port 80
     netstat -antp | grep apache2
 
-### 15.2 Configuration Virtual IP sur Fortigate pour rediriger traffic HTTP et HTTPS
+## 15.2 Configuration Virtual IP sur Fortigate pour rediriger traffic HTTP et HTTPS
 
 Pour accéder aux pages web présente sur le serveur de la DMZ depuis l'extérieur (WAN) le traffic HTTP arrivant sur le port 3 (192.168.122.29) du parfeu Fortigate (qui fait aussi office de routeur ici) devra être redirigé vers l'adresse 192.168.10.1 sur le port 80.
 
