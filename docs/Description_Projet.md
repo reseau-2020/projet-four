@@ -756,6 +756,10 @@ On ajoute ensuite les utilisateurs enregistrés sur les clients ainsi que leur m
     aaa session-id common
     snmp-server enable traps aaa_server
 
+En capturant le trafic avec Wireshark :
+
+![Capture_Datagrammes](RADIUS.JPG)
+
 # 13 Fiabilité de la topo <a id="13"></a>
 ## Vérification de la connectivité en IPV4 et IPV6
 Des tests de connectivité en ipv4 et en ipv6 ont été établis en interne, vers l'internet et vers le site distant fortigate via le tunnel VPN. En outre, une connexion ssh est montée uniquement à partir de site cisco au site fortigate (via le tunnel VPN). 
