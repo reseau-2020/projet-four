@@ -167,8 +167,60 @@ Pour diagnostiquer des erreurs sur les VLANs on peut utiliser les commandes suiv
 # 4 Spanning-tree <a id="4"></a>
 Le protocol *Spanning-tree* est implémenté sur les 4 périphériques de couche 2 : *AS1*, *AS2*, *DS1* & *DS2*. *DS1* est `root primary` pour les vlans 10, 30 et 99 (natif) et `secondary` pour les vlans 20 et 40. Respectivement, *DS2* est `root primary` pour les vlans 20 et 40 et `secondary` pour les vlans 10, 30 et 99. Pour vérifier l'implémentation du SPT, on a éxécuté les commandes suivantes:
 - show spanning-tree summary
-- show spanning-tree
+````
+DS1#show spanning-tree summary
+Switch is in rapid-pvst mode
+Root bridge for: VLAN0010, VLAN0030, VLAN0099
+Extended system ID                      is enabled
+Portfast Default                        is disabled
+Portfast Edge BPDU Guard Default        is disabled
+Portfast Edge BPDU Filter Default       is disabled
+Loopguard Default                       is disabled
+PVST Simulation Default                 is enabled but inactive in rapid-pvst mode
+Bridge Assurance                        is enabled
+EtherChannel misconfig guard            is enabled
+Configured Pathcost method used is short
+UplinkFast                              is disabled
+BackboneFast                            is disabled
+
+Name                   Blocking Listening Learning Forwarding STP Active
+---------------------- -------- --------- -------- ---------- ----------
+VLAN0001                     0         0        2          1          3
+VLAN0010                     0         0        0          3          3
+VLAN0020                     0         0        0          3          3
+VLAN0030                     0         0        0          3          3
+VLAN0040                     0         0        0          3          3
+
+Name                   Blocking Listening Learning Forwarding STP Active
+---------------------- -------- --------- -------- ---------- ----------
+VLAN0099                     0         0        0          3          3
+---------------------- -------- --------- -------- ---------- ----------
+6 vlans                      0         0        2         16         18
+````
+
 - show spanning-tree vlan X 
+````
+DS1#show spanning-tree vlan 20
+
+VLAN0020
+  Spanning tree enabled protocol rstp
+  Root ID    Priority    24596
+             Address     0c8c.1297.0100
+             Cost        3
+             Port        66 (Port-channel3)
+             Hello Time   2 sec  Max Age 20 sec  Forward Delay 15 sec
+
+  Bridge ID  Priority    28692  (priority 28672 sys-id-ext 20)
+             Address     0c8c.127d.9c00
+             Hello Time   2 sec  Max Age 20 sec  Forward Delay 15 sec
+             Aging Time  300 sec
+
+Interface           Role Sts Cost      Prio.Nbr Type
+------------------- ---- --- --------- -------- --------------------------------
+Po1                 Desg FWD 3         128.65   P2p Peer(STP)
+Po3                 Root FWD 3         128.66   P2p
+Po5                 Desg FWD 3         128.67   P2p Peer(STP)
+````
 
 # 5 Etherchannel <a id="5"></a>
 
