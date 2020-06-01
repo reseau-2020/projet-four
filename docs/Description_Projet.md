@@ -639,12 +639,35 @@ On ajoute ensuite ce mode de transport SSH aux consoles virtuelles (line vty) du
  ip ssh logging events
 
  line vty 0 4
- transport input ssh
- login local
+  transport input ssh
+  login local
 ```
 
 L'authentification de la connexion se fait avec les utilisateurs enregistrés en local. Les mots de passes en local sont encryptés pour ne pas apparaitre en clair dans la configuration.
- 
+
+## Switchport Security
+
+Le mode switchport security est simplement activé sur les interfaces des switchs AS1 et AS2 de la couche Access. Par défaut, il permet qu'une seule adresse MAC soit apprise dynamiquement, en cas de "violation" il passe en mode "shutdown".
+```
+interface g0/1
+ switchport port security
+
+show port-security
+```
+## BPDU guard
+En activant le mode BPDU guard sur les port configurés en "PortFast" on empêche les flux de messages BPDUs d'être acheminés, ce qui empêche donc la modification de la topologie Spanning-tree:
+```
+interface g0/1
+ spanning-tree portfast
+ spanning-tree bpdu guard enable
+```
+Ou en global pour toutes les interfaces non trunk :
+```
+spanning-tree portfast default
+spanning-tree portfast bpdu guard default
+```
+Grâce à ça, si un attaquant essaie de connecter un autre Switch utilisant le protocole Spanning-Tree il ne pourra pas devenir Root et influencer le protocole.
+
 ## Serveur Radius
 
 Un service de sécurité AAA permet un contôle d'accès aux périphériques du réseaux.
