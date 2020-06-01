@@ -37,4 +37,13 @@ On ajoute ensuite ce mode de transport SSH aux consoles virtuelles (line vty) du
 L'authentification de la connexion se fait avec les utilisateurs enregistrés en local. Les mots de passes en local sont encryptés pour ne pas apparaitre en clair dans la configuration.
 
 
+## Serveur RADIUS
+
+Un service de sécurité AAA permet un contôle d'accès aux périphériques du réseaux.
+Il réalise les 3 fonctions suivantes :
+
+1. Authentification : contrôle qui est autorisé à accéder au réseau
+2. Authorization : contrôle ce que les utilisateurs peuvent faire
+3. Accounting : vérifie les actions qui ont été accomplies par les utilisateurs
+
 
