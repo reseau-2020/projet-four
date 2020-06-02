@@ -1,7 +1,7 @@
 # Livrables du projet 4
 
 ## Rapports journaliers
-Les rapports kournaliers peuvent se lire à cette adresse : 
+Les rapports journaliers peuvent se lire à cette adresse : 
 https://reseau-2020.github.io/projet-four/
 
 ## Codes
